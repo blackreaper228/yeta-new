@@ -8,3 +8,19 @@ body {
 body.Main {
   background-color: var(--BlueLarge2);
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  &:visited,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+my-navbar {
+  position: absolute;
+  left: 0;
+}
