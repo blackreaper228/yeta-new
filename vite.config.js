@@ -1,7 +1,22 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 
 export default defineConfig({
   base: "/yeta-new/",
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+        about: resolve(__dirname, "about.html"),
+        cases: resolve(__dirname, "cases.html"),
+        sustainability: resolve(__dirname, "sustainability.html"),
+        service01: resolve(__dirname, "service-01.html"),
+        service02: resolve(__dirname, "service-02.html"),
+        service03: resolve(__dirname, "service-03.html"),
+        service04: resolve(__dirname, "service-04.html"),
+      },
+    },
+  },
 });

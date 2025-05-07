@@ -1,5 +1,10 @@
 import { useEffect, useRef } from "react";
 
+// import Service01 from "../../service-01.html";
+// import Service02 from "./pages/Service02.html";
+// import Service03 from "./pages/Service03.html";
+// import Service04 from "./pages/Service04.html";
+
 export default function Navbar() {
   const menuRef = useRef(null);
   const dropRef = useRef(null);
