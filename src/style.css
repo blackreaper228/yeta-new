@@ -1172,3 +1172,80 @@ a > p.button {
   width: 26px;
   cursor: pointer;
 }
+
+.About_Section01 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px;
+  width: 100%;
+  background-color: var(--white);
+}
+
+.A_PlanetSmall {
+  width: 42px;
+  aspect-ratio: 1;
+}
+
+.W_AboutWrap {
+  margin-top: 60px;
+  margin-bottom: 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+}
+
+.W_AboutWrapInside {
+  align-items: center;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 28px;
+
+  h3 {
+    text-align: center;
+    color: var(--BlueLarge2);
+  }
+}
+
+.W_AboutSec02Wrap01 {
+  display: flex;
+  gap: 20px;
+
+  color: var(--white);
+  width: 100%;
+}
+
+.WrapRowAbout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 382px;
+
+  &:nth-child(3) > h4 {
+    padding-left: 138px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 300px;
+  }
+}
+
+.W_WrapAboutVertical {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  p {
+    font-weight: 200;
+  }
+}
+
+.About_Section02 {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  padding: 112px 128px;
+  justify-content: center;
+}

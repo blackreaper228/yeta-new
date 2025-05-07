@@ -1,6 +1,6 @@
 h1.ExtraTitle {
   font-size: 128px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -5px;
   line-height: 110%;
   font-weight: 100;
@@ -8,7 +8,7 @@ h1.ExtraTitle {
 
 h2.Footer {
   font-size: 64px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -2px;
   line-height: 78px;
   font-weight: 100;
@@ -16,7 +16,7 @@ h2.Footer {
 
 h2.BigTitle {
   font-size: 56px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -2px;
   line-height: 110%;
   font-weight: 100;
@@ -24,7 +24,7 @@ h2.BigTitle {
 
 h3.Title {
   font-size: 40px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -2px;
   line-height: 110%;
   font-weight: 100;
@@ -32,7 +32,7 @@ h3.Title {
 
 .TitleBold {
   font-size: 40px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -2px;
   line-height: 110%;
   font-weight: 400;
@@ -40,7 +40,7 @@ h3.Title {
 
 h4.Subtitle {
   font-size: 28px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -1px;
   line-height: 130%;
   font-weight: 100;
@@ -48,7 +48,7 @@ h4.Subtitle {
 
 h4.SubtitleBold {
   font-size: 28px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -1px;
   line-height: 130%;
   font-weight: 400;
@@ -56,7 +56,7 @@ h4.SubtitleBold {
 
 p {
   font-size: 19px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -0.5px;
   line-height: 140%;
   font-weight: 300;
@@ -64,7 +64,7 @@ p {
 
 p.button {
   font-size: 19px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -0.5px;
   line-height: 24px;
   font-weight: 400;
@@ -72,7 +72,7 @@ p.button {
 
 p.small {
   font-size: 14px;
-  font-family: 'Onest';
+  font-family: "Onest";
   letter-spacing: -0.5px;
   line-height: 140%;
   font-weight: 300;

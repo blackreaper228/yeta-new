@@ -1,11 +1,9 @@
+import navbarHTML from "../../navbar.html";
+
 class Navbar extends HTMLElement {
   connectedCallback() {
-    fetch("./navbar.html")
-      .then((res) => res.text())
-      .then((html) => {
-        this.innerHTML = html;
-        this.initDropdown(); // вызываем после вставки
-      });
+    this.innerHTML = navbarHTML;
+    this.initDropdown(); // если есть логика
   }
 
   initDropdown() {

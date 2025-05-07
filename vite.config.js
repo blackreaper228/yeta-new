@@ -1,5 +1,12 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
+import string from "vite-plugin-string";
 
 export default defineConfig({
-  base: '/yeta-new/',
-})
+  base: "/yeta-new/",
+
+  plugins: [
+    string({
+      include: "**/*.html",
+    }),
+  ],
+});
