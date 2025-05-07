@@ -1,12 +1,7 @@
 import { defineConfig } from "vite";
-import string from "vite-plugin-string";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   base: "/yeta-new/",
-
-  plugins: [
-    string({
-      include: "**/*.html",
-    }),
-  ],
+  plugins: [react()],
 });

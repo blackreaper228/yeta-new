@@ -10,9 +10,14 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
     "gh-pages": "^6.3.0",
     "prettier": "^3.5.3",
     "vite": "^6.3.1",
     "vite-plugin-string": "^1.2.3"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }

@@ -63,10 +63,11 @@
     visibility: hidden;
     flex-direction: column;
     position: absolute;
-    margin-top: 344px;
+    margin-top: 70px;
     gap: 4px;
     width: 250px;
-    padding-top: 6px;
+    padding-top: 4px;
+    top: 0;
 
     p.button {
       padding-right: 70px;
@@ -977,13 +978,13 @@ p.button.selected {
 
 .W_FormDownside {
   .A_Button {
+    all: unset;
     display: flex;
     background-color: var(--BlueLarge2);
     padding: 12px 24px;
     gap: 12px;
     color: var(--GreyLight);
     border-radius: 4px;
-
     cursor: pointer;
 
     &:hover {
@@ -1132,30 +1133,6 @@ a > p.button {
   display: flex;
 }
 
-.ContactModal {
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 999;
-  justify-content: center;
-  align-items: center;
-
-  .O_Form {
-    position: relative;
-    max-width: 636px;
-  }
-
-  .M_FormInput {
-    width: 100%;
-  }
-
-  .A_FormInputField {
-    width: 100%;
-  }
-}
-
 .W_FormContentRow {
   position: relative;
 }
@@ -1248,4 +1225,34 @@ a > p.button {
   display: flex;
   padding: 112px 128px;
   justify-content: center;
+}
+
+.ContactModalWrap {
+  display: flex;
+  user-select: none;
+  width: 100%;
+}
+
+.ContactModal {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+
+  .O_Form {
+    position: relative;
+    max-width: 636px;
+  }
+
+  .M_FormInput {
+    width: 100%;
+  }
+
+  .A_FormInputField {
+    width: 100%;
+  }
 }
