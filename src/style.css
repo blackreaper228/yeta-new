@@ -986,13 +986,16 @@ body.test_anim {
 }
 
 .W_TabsWrapFirst {
+  z-index: 1;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
   width: 100%;
   justify-content: center;
 
-  position: absolute;
+  position: fixed;
   top: 76px;
+
+  transition: 0.1s;
 
   .W_Tabs {
     justify-content: center;

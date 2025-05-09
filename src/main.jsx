@@ -8,6 +8,7 @@ import "./javascript/industry.js";
 import "./javascript/scale.js";
 import "./javascript/animation.js";
 import "./javascript/no-move.js";
+import "./javascript/hide.js";
 
 import React from "react";
 import { createRoot } from "react-dom/client";
