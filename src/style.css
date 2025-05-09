@@ -26,7 +26,7 @@
 }
 
 .O_Header {
-  z-index: 9;
+  z-index: 9999;
   background-color: var(--white);
   position: fixed;
   width: 100%;
@@ -70,7 +70,7 @@
     top: 0;
 
     p.button {
-      padding-right: 70px;
+      /* padding-right: 1px; */
     }
   }
 
@@ -87,6 +87,7 @@
     border-radius: 4px;
     /* margin-left: clamp(0px, 19.167vw, 276px); */
     margin-left: 276px;
+    margin-right: 32px;
 
     &:hover {
       background-color: var(--BlueHover);
@@ -104,8 +105,31 @@
     }
   }
 
-  .A_BoxRight {
-    margin-right: 32px;
+  .BurgerMenu {
+    cursor: pointer;
+    display: none;
+    width: 36px;
+    aspect-ratio: 1;
+    background-image: url("./images/BurgerMenu.svg");
+  }
+}
+
+@media (max-width: 1024px) {
+  .O_Header {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .M_Box {
+      display: none;
+    }
+
+    .BurgerMenu {
+      display: flex;
+    }
+
+    #ContactUsBtn {
+      display: none;
+    }
   }
 }
 
@@ -116,8 +140,15 @@
 
 .A_Logo {
   background-image: url("./images/A_Logo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   width: 96px;
   height: 34px;
+
+  &:hover {
+    background-image: url("./images/A_Logo02.svg");
+  }
 }
 
 .A_BoxIcon {
@@ -127,39 +158,89 @@
   margin-bottom: 2px;
 }
 
+.ScrollWrap {
+  position: relative;
+}
+
+.ScrollContent {
+  position: relative;
+}
+
+#anim {
+  /* mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 30%,
+    black 100%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 30%,
+    black 0%,
+    transparent 100%
+  ); */
+
+  position: absolute;
+
+  top: 70px;
+  width: 100%;
+  z-index: -1;
+  height: 774px;
+}
+
+#anim svg {
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .O_FirstSection {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 70px;
   width: 100%;
-  height: 100vh;
+  height: 820px;
   position: fixed;
-  background-color: var(--BlueLarge);
+  background: linear-gradient(
+    0deg,
+    var(--Blue-light, #bfe2ff) 0%,
+    #a9d8ff 7.22%,
+    #4aabf4 38.87%,
+    var(--Blue-Large, #0074ca) 88.87%
+  );
   z-index: -1;
   top: 0;
-  background-image: url("./images/Q_FirstSectionBG.png");
+  /* background-image: url("./images/Q_FirstSectionBG.png"); */
   background-size: cover;
   background-origin: content-box;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.Hidden {
+  visibility: hidden;
+}
+
 .A_FirstSectionModal {
-  width: 296px;
-  height: 160px;
+  z-index: 999999;
+  cursor: pointer;
+  width: fit-content;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 0.818px solid rgba(233, 240, 246, 0.4);
 
   flex-direction: column;
   gap: 8px;
   border-radius: 3px;
-  backdrop-filter: blur(18px);
   margin-bottom: 80px;
 
-  color: #f7f9fb;
+  color: var(--BlueLarge2);
 
   text-align: center;
   font-family: "Onest";
@@ -167,7 +248,43 @@
   font-weight: 300;
   line-height: 130%;
   letter-spacing: -0.1px;
-  background: rgba(4, 84, 143, 0.2);
+  background-color: var(--white);
+}
+
+.Abs {
+  position: absolute;
+  top: 562px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.LandingScreenWrap {
+  padding-top: 146px;
+  width: 100%;
+  max-width: 514px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    text-align: center;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  p {
+    text-align: center;
+    color: var(--white);
+  }
+}
+
+.LandingTextWrap {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
 }
 
 .P_Long {
@@ -175,7 +292,17 @@
   flex-direction: column;
   width: 100%;
   position: relative;
-  margin-top: 95vh;
+  /* margin-top: 95vh; */
+}
+
+.plug {
+  user-select: none;
+  pointer-events: none;
+  position: relative;
+  width: 100%;
+  height: 774px;
+  z-index: -10;
+  visibility: hidden;
 }
 
 .T_Block {
@@ -186,11 +313,12 @@
   gap: 128px;
   background:
     radial-gradient(
-      145.65% 85.2% at 91.87% 9.06%,
-      rgba(254, 255, 255, 0.47) 0%,
-      rgba(233, 240, 246, 0) 100%
+      131.02% 113.54% at 11.93% 89.59%,
+      var(--Blue-Medium, rgba(97, 180, 250, 0.5)) 0%,
+      var(--Blue-Large-2, rgba(0, 83, 150, 0.5)) 100%
     ),
-    rgba(117, 186, 255, 0.4);
+    rgba(0, 94, 171, 0.8);
+
   backdrop-filter: blur(25px);
 }
 
@@ -200,6 +328,7 @@
   width: 100%;
   padding: 92px 0px;
   background-color: var(--white);
+  align-items: center;
 }
 
 .W_BoxLeft {
@@ -255,8 +384,12 @@
 
 .W_1440pxWrap {
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
+}
+
+.CasesNumbersShown {
+  display: flex;
 }
 
 .W_1440pxWrapTitle {
@@ -374,7 +507,7 @@
     }
 
     p.ShortenP {
-      max-width: 200px;
+      max-width: 220px;
     }
   }
 }
@@ -393,6 +526,14 @@
     text-decoration: underline;
     text-underline-offset: 6px;
     text-decoration-color: var(--white);
+  }
+}
+
+.T_Cases {
+  .A_Button.Clear {
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -422,6 +563,40 @@
   aspect-ratio: 1;
 }
 
+.A_IconSus01 {
+  background-image: url("./images/A_IconSus01.svg");
+  width: 50px;
+  aspect-ratio: 1;
+}
+
+.A_IconSus02 {
+  background-image: url("./images/A_IconSus02.svg");
+  width: 50px;
+  aspect-ratio: 1;
+}
+
+.A_IconSus03 {
+  background-image: url("./images/A_IconSus03.svg");
+  width: 50px;
+  aspect-ratio: 1;
+}
+
+.SusIconsWrap {
+  flex-wrap: wrap;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 128px;
+  color: var(--BlueLarge2);
+  padding-bottom: 212px;
+}
+
+.SusIconsWrapContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .A_Tag {
   display: flex;
   color: var(--GreyLight);
@@ -435,22 +610,94 @@
   }
 }
 
+.WrapAgain {
+  background-color: var(--white);
+  position: relative;
+  width: 100%;
+  /* overflow-x: auto; */
+  /* overflow-x: hidden; */
+
+  justify-content: center;
+}
+
+.ServBlock {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  position: relative;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 92px;
+  padding-right: 128px;
+  padding-left: 128px;
+}
+
+body.test_anim {
+  background-color: #002f5e;
+}
+
+.lol {
+  padding-top: 48px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+
+  h2 {
+    color: var(--BlueLarge2);
+    width: 100%;
+    max-width: 930px;
+    text-align: center;
+  }
+}
+
+.ServWrap {
+  gap: 32px;
+  width: 100%;
+  max-width: 1184px;
+  display: flex;
+  flex-direction: column;
+}
+
+.W_BoxServs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+  grid-template-rows: repeat(2, auto); /* 2 строки */
+
+  width: 100%;
+  max-width: 1184px;
+  padding-left: 128px;
+  padding-right: 128px;
+  position: relative;
+  color: var(--BlueLarge2);
+  gap: 20px;
+
+  .O_Services {
+    width: 100%;
+  }
+}
+
 .W_1440pxWrapCarousel {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 180px);
+  scrollbar-width: none;
+
+  position: relative;
+  gap: 20px;
   padding: 78px 0px;
-  overflow: visible;
+  overflow-x: auto;
   justify-content: center;
 }
 
 .W_BoxCarousel {
-  padding-left: 8.889vw;
-  padding-right: 8.889vw;
-  /* padding-left: calc((100vw - 1312px) / 2); */
-  /* padding-right: calc((100vw - 1312px) / 2); */
-  width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none;
+  position: relative;
+  width: fit-content;
+  padding-right: calc(calc(100vw - calc(1440px - 256px)) / 2);
+  /* padding-left: 8.889vw; */
+  /* padding-right: 8.889vw; */
   color: var(--BlueLarge2);
   align-items: center;
   display: flex;
@@ -466,6 +713,7 @@
   background-size: contain;
 
   &::before {
+    display: block;
     transition: 0.4s;
 
     opacity: 1;
@@ -481,6 +729,8 @@
   }
 
   &::after {
+    display: block;
+
     transition: 0.4s;
 
     opacity: 0;
@@ -500,8 +750,20 @@
   transition: 0.4s;
   position: relative;
   width: 20.833vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  overflow: hidden;
+
   cursor: pointer;
   user-select: none;
+
+  .A_Image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 
   &:nth-child(1) .A_Image {
     background-image: url("./images/A_Image01.jpg");
@@ -525,6 +787,9 @@
 
   &:nth-child(6) .A_Image {
     background-image: url("./images/A_Image06.jpg");
+  }
+
+  &:nth-child(6) {
   }
 
   &:nth-child(2) .A_ServicesDescription {
@@ -559,6 +824,12 @@
   }
 }
 
+@media (max-width: 1439px) {
+  .O_Services {
+    width: 29.297vw;
+  }
+}
+
 .A_ImageIcon {
   z-index: 1;
   width: 50px;
@@ -579,11 +850,20 @@
 .A_ServicesDescription {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 12px;
   padding: 20px;
+  z-index: 1;
 
   .A_Button.Clear:hover {
     text-decoration: none;
+  }
+
+  p.button.height {
+    display: flex;
+    align-items: flex-end;
+    height: 2.778vw;
+    vertical-align: bottom;
   }
 }
 
@@ -605,15 +885,29 @@
 }
 
 .W_LogosCarousel {
-  cursor: grab;
-  user-select: none;
-  overflow-x: auto;
-  scrollbar-width: none;
-  align-items: center;
-  padding: 40px 92px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 40px 0px;
+}
+
+.logos-track {
   display: flex;
-  /* gap: 9.444vw; */
+  width: max-content;
   gap: 6.667vw;
+  align-items: center;
+
+  animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Анимируем ровно на ширину одного полного набора логотипов */
+    transform: translateX(calc(-1 * var(--marquee-width, 1000px)));
+  }
 }
 
 .A_LogoTrusted {
@@ -623,42 +917,42 @@
   display: flex;
   cursor: pointer;
 
-  &:nth-child(1) {
+  &.l1 {
     width: 5.417vw;
     height: 2.222vw;
   }
 
-  &:nth-child(2) {
+  &.l2 {
     width: 5.972vw;
     height: 2.917vw;
   }
 
-  &:nth-child(3) {
+  &.l3 {
     width: 5.417vw;
     height: 2.708vw;
   }
 
-  &:nth-child(4) {
+  &.l4 {
     width: 7.986vw;
     height: 2.153vw;
   }
 
-  &:nth-child(5) {
+  &.l5 {
     width: 7.222vw;
     height: 2.431vw;
   }
 
-  &:nth-child(6) {
+  &.l6 {
     width: 4.653vw;
     height: 2.153vw;
   }
 
-  &:nth-child(7) {
+  &.l7 {
     width: 8.125vw;
     height: 1.806vw;
   }
 
-  &:nth-child(8) {
+  &.l8 {
     width: 3.75vw;
     height: 3.403vw;
   }
@@ -691,6 +985,24 @@
   justify-content: center;
 }
 
+.W_TabsWrapFirst {
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  position: absolute;
+  top: 76px;
+
+  .W_Tabs {
+    justify-content: center;
+  }
+
+  .Tab {
+    padding: 12px 16px;
+  }
+}
+
 .W_Tabs {
   width: 1440px;
   display: flex;
@@ -716,9 +1028,10 @@
 }
 
 .O_Industry {
-  width: 1440px;
+  display: none;
+  width: 100%;
+  max-width: 1440px;
   padding: 0px 128px 48px 128px;
-  display: flex;
   gap: 104px;
 
   .O_Text {
@@ -740,13 +1053,20 @@
 
   .A_ImageIndustry {
     width: 100%;
-    min-width: 540px;
+    max-width: 540px;
+    min-width: 1px;
     border-radius: 6px;
     object-fit: cover;
+    height: 300px;
   }
 }
 
+.IndustryShown {
+  display: flex;
+}
+
 .W_1440pxWrapNumbers {
+  width: 100%;
   padding: 64px 0px 112px 0px;
   background-color: var(--white);
   display: flex;
@@ -820,12 +1140,25 @@
 .W_1440pxWrapCases {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: var(--BlueLarge2);
 }
 
+.W_1440pxWrapCasesPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--BlueLarge2);
+  padding-bottom: 128px;
+}
+
 .T_Cases {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   padding: 112px 128px;
 
   gap: 92px;
@@ -834,6 +1167,32 @@
 
   .O_Text {
     color: var(--GreyLight);
+  }
+
+  p.button {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 14px;
+      margin-top: -2px;
+    }
+  }
+}
+
+.T_Cases {
+  .O_Text {
+    p.button {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 6px;
+        margin-top: 0px;
+      }
+    }
   }
 }
 
@@ -861,6 +1220,18 @@
 .W_MapBox {
   display: flex;
   position: relative;
+  display: none;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s;
+
+  &.MapBoxShown {
+    transition: opacity 0.1s;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+  }
 }
 
 p.button.selected {
@@ -1040,6 +1411,7 @@ p.button.selected {
 }
 
 .T_FooterDownside {
+  position: relative;
   width: 100%;
   max-width: 1440px;
   padding: 0px 48px;
@@ -1163,6 +1535,11 @@ a > p.button {
   aspect-ratio: 1;
 }
 
+.A_PlanetSmall {
+  width: 58px;
+  aspect-ratio: 1;
+}
+
 .W_AboutWrap {
   margin-top: 60px;
   margin-bottom: 85px;
@@ -1182,7 +1559,8 @@ a > p.button {
 
   gap: 28px;
 
-  h3 {
+  h3,
+  h2 {
     text-align: center;
     color: var(--BlueLarge2);
   }
@@ -1219,12 +1597,42 @@ a > p.button {
   }
 }
 
+ul {
+  list-style-position: inside;
+  list-style: disc;
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 20px;
+}
+
+.About_Section02Wrap {
+  position: relative;
+  width: 100%;
+  padding: 112px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.About_Section02WrapSus {
+  position: relative;
+  width: 100%;
+  padding: 112px 128px;
+  display: flex;
+  justify-content: center;
+}
+
 .About_Section02 {
   width: 100%;
   max-width: 1440px;
   display: flex;
   padding: 112px 128px;
   justify-content: center;
+  flex-direction: column;
+  gap: 128px;
+
+  .O_Box {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 .ContactModalWrap {
@@ -1254,5 +1662,565 @@ a > p.button {
 
   .A_FormInputField {
     width: 100%;
+  }
+}
+
+.SickySec {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1440px;
+  color: var(--white);
+  height: fit-content;
+}
+
+.FixedElem {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-top: 190px;
+  /* top: 300px; */
+  position: sticky;
+  width: 100%;
+  height: fit-content;
+  width: 382px;
+}
+
+.FixedSusWidth {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  max-width: 1440px;
+  height: fit-content;
+}
+
+.FixedElemSus {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-top: 190px;
+  /* top: 300px; */
+  width: 100%;
+  height: fit-content;
+  width: 382px;
+}
+
+.A_SusStickIcon {
+  width: 25px;
+  aspect-ratio: 1;
+}
+
+.SusStickWrap {
+  width: 100%;
+  max-width: 382px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.SusStickSec03 {
+  width: 100%;
+  display: flex;
+}
+
+.ScrollWrapVert {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--test);
+}
+
+.ScrollElem {
+  position: relative;
+  width: 100%;
+}
+
+.ScrollElemCar {
+  /* padding-left: calc(calc(100vw - calc(1440px - 528px))); */
+  display: flex;
+  position: relative;
+  width: max-content;
+  /* width: 10px; */
+  /* max-width: 782px; */
+}
+
+.AbsoluteCarouselWrapHaha {
+  position: absolute;
+  width: 200px;
+  height: 38.333vw;
+  max-height: 552px;
+  /* padding-top: clamp(1px, 4.444vw, 64px);
+  padding-bottom: clamp(1px, 4.444vw, 64px); */
+}
+
+.Arrows {
+  position: absolute;
+  bottom: calc(calc(clamp(1px, 4.444vw, 64px) * -1) - 108px);
+  left: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.Arrow {
+  cursor: pointer;
+  width: 18px;
+  aspect-ratio: 1;
+  background-image: url("./images/Arrow.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.Prev {
+    transform: rotate(-180deg);
+  }
+}
+
+.SusCarousel {
+  overflow-x: auto;
+
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  /* scrollbar-width: none; */
+  padding: 64px 0px 64px 0px;
+}
+
+.A_SusHorScrollPic {
+  user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+
+  pointer-events: none;
+  width: 28.75vw;
+  max-width: 414px;
+  height: 38.333vw;
+  max-height: 552px;
+  /* height: 50px; */
+  object-fit: cover;
+  border-radius: 4px;
+
+  &.Wide {
+    width: 63.333vw;
+    max-width: 736px;
+  }
+}
+
+.AbsoluteCarousel {
+  user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+
+  scrollbar-width: none;
+  overflow-x: auto;
+  left: 0;
+  gap: 20px;
+  display: flex;
+  position: absolute;
+  width: calc(100vw - 20px);
+  padding-top: clamp(1px, 4.444vw, 64px);
+  padding-bottom: clamp(1px, 4.444vw, 64px);
+  padding-right: 8.889vw;
+}
+
+.SusCarouselContent {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  /* padding-right: calc(calc(100vw - calc(1440px - 256px)) / 2); */
+  align-items: center;
+}
+
+.BigTitle.yes-border {
+  margin-top: 138px;
+  padding-top: 128px;
+}
+
+.yes-border {
+  border-top: 1px solid var(--Blue-Large, #0074ca);
+}
+
+.WrapAboutUs {
+  display: flex;
+  padding: 128px 0px;
+  border-bottom: 1px solid var(--Blue-Large, #0074ca);
+
+  h3 {
+    width: 100%;
+    max-width: 392px;
+  }
+
+  p {
+    width: 100%;
+    max-width: 392px;
+  }
+}
+
+.WrapAboutUsContent {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  p {
+    color: #99bad5;
+  }
+}
+
+.WrapAboutUsVerical {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.Bullet {
+  width: 50px;
+  padding: 12px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .CircleBlue {
+    background-color: var(--BlueLarge);
+    width: 26px;
+    aspect-ratio: 1;
+    border-radius: 99999px;
+  }
+}
+
+.FixedWrap {
+  width: 382px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+
+  p.small {
+    transition: opacity 0.3s;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.A_LogoMovingBullet {
+  transition: top 0.2s;
+  width: 50px;
+  aspect-ratio: 1;
+  background-image: url("./images/A_LogoMovingBullet.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  position: absolute;
+}
+
+p.small.pShown {
+  opacity: 1;
+  visibility: visible;
+}
+
+.W_1440pxWrapScope {
+  color: var(--BlueLarge2);
+  background-color: var(--white);
+
+  display: flex;
+
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.T_Scope {
+  display: none;
+  width: 100%;
+  max-width: 1440px;
+  padding: 128px 128px 64px 128px;
+}
+
+.ScopeShown {
+  display: flex;
+}
+
+.Shown {
+  display: flex;
+}
+
+.ScopeHeaderWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 100%;
+  max-width: 382px;
+}
+
+.ScopeContentImage {
+  width: 100%;
+  max-width: 382px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.ScopeContent {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 128px;
+}
+
+.ScopeContentText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.SusSec2 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 272px;
+}
+
+.SickySecSus {
+  box-sizing: border-box;
+  /* padding: 272px 128px 128px 128px; */
+
+  /* padding-right: calc(calc(100vw - calc(1440px - 256px)) / 2); */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  color: var(--white);
+  height: fit-content;
+  right: 0;
+  /* max-width: 782px; */
+}
+
+.SusVertical {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0px;
+}
+
+.no-border {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.SusSec2Wrap {
+  padding-top: 272px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plugCar {
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+  width: 382px;
+  height: 10px;
+}
+
+.plswork {
+  /* margin-left: 382px; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1440px;
+}
+
+.PlugWrap {
+  margin-top: 4.444vw;
+  width: 100%;
+  height: 38.472vw;
+  max-height: 552px;
+}
+
+.ScrollArrow {
+  width: 18px;
+  aspect-ratio: 1;
+}
+
+.SusPWrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 382px;
+  gap: 20px;
+
+  p {
+    font-weight: 100;
+  }
+
+  p:nth-child(2) {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  p:nth-child(3) {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.T_BlockServices {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 112px 0px;
+  gap: 128px;
+  background-color: var(--white);
+  backdrop-filter: blur(25px);
+}
+
+.PlanetService {
+  width: 50px;
+  aspect-ratio: 1;
+}
+
+.W_TitleBlockWrapServices {
+  width: 100%;
+  min-height: 280px;
+  display: flex;
+  border-top: 1px solid rgba(1, 69, 120, 0.24);
+  border-bottom: 1px solid rgba(1, 69, 120, 0.24);
+
+  &.Second {
+    border-top: 1px solid rgba(1, 69, 120, 0.24);
+    border-bottom: 1px solid rgba(1, 69, 120, 0.24);
+  }
+
+  .O_TitleBlock {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    position: relative;
+    width: 100%;
+    max-width: none;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .W_BoxLeft {
+    grid-column: 2/18;
+
+    border-right: 1px solid rgba(1, 69, 120, 0.24);
+    width: 100%;
+    /* max-width: 932px; */
+    flex-shrink: 0;
+    justify-content: space-between;
+
+    padding-left: 128px;
+    /* padding-right: 32px; */
+    h3.Title,
+    p {
+      color: var(--BlueLarge2);
+    }
+  }
+
+  .W_BoxRight {
+    grid-column: 18/25;
+    background-image: url("./images/ServicesImage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    padding: 0;
+  }
+
+  .M_Text {
+    display: flex;
+    width: 100%;
+    max-width: none;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  @media (min-width: 564px) and (max-width: 1224px) {
+    .W_BoxLeft {
+      grid-column: 1 / 5;
+      padding-left: 24px;
+    }
+
+    .W_BoxRight {
+      grid-column: 8 / 12;
+    }
+  }
+
+  @media (max-width: 563px) {
+    .W_BoxLeft {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      padding-left: 24px;
+    }
+
+    .W_BoxRight {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      height: 200px;
+    }
+  }
+}
+
+.margin {
+  padding-top: 24px;
+}
+
+@media (max-width: 1439px) {
+  .W_1440pxWrapCarousel {
+    justify-content: start;
+    padding-left: 128px;
+    padding-right: 128px;
+  }
+
+  .A_ServicesDescription {
+    p.button.height {
+      /* height: 60px; */
+    }
+  }
+}
+
+.T_BlockService01 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 112px 0px;
+  gap: 128px;
+  background-color: var(--white);
+  backdrop-filter: blur(25px);
+
+  .W_BoxLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    padding: 64px 64px 64px 128px;
+
+    .A_Button {
+      gap: 12px;
+      padding: 16px 24px;
+      border-radius: 4px;
+
+      max-width: 226px;
+      display: flex;
+      p {
+        color: var(--white);
+      }
+    }
+  }
+
+  .W_BoxRight {
+    background-image: url("./images/Service1Image.jpg");
+    background-size: cover;
   }
 }

@@ -1,10 +1,5 @@
 import { useEffect, useRef } from "react";
 
-// import Service01 from "../../service-01.html";
-// import Service02 from "./pages/Service02.html";
-// import Service03 from "./pages/Service03.html";
-// import Service04 from "./pages/Service04.html";
-
 export default function Navbar() {
   const menuRef = useRef(null);
   const dropRef = useRef(null);
@@ -38,9 +33,14 @@ export default function Navbar() {
 
   const services = [
     { title: "Multimodal Solutions", url: "./service-01.html" },
-    { title: "Freight Forwarding", url: "./service-02.html" },
-    { title: "Single Mode", url: "./service-03.html" },
-    { title: "Custom Warehousing", url: "./service-04.html" },
+    { title: "Air Freight and Charter Services", url: "./service-02.html" },
+    { title: "International and Domestic Trucking", url: "./service-03.html" },
+    { title: "Dangerous goods", url: "./service-04.html" },
+    {
+      title: "Logistics Consulting & Route Analysis",
+      url: "./service-05.html",
+    },
+    { title: "Warehousing & Storage", url: "./service-06.html" },
   ];
 
   return (
@@ -51,7 +51,9 @@ export default function Navbar() {
         </a>
         <div className="A_BoxDrop" ref={dropRef}>
           <div className="Wrap">
-            <p className="button">Services</p>
+            <a href="./services.html">
+              <p className="button">Services</p>
+            </a>
             <div className="A_BoxIcon"></div>
           </div>
           <div className="A_Menu" ref={menuRef}>
@@ -84,6 +86,7 @@ export default function Navbar() {
           <p className="button">Contact Us</p>
         </div>
       </div>
+      <div className="BurgerMenu"></div>
     </div>
   );
 }

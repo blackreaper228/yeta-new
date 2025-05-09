@@ -12,20 +12,19 @@ export default function ContactModal() {
   });
 
   useEffect(() => {
-    const contactBtn = document.querySelector("#ContactUsBtn");
-
-    if (contactBtn) {
-      contactBtn.addEventListener("click", () => {
+    const handleClick = (e) => {
+      const target = e.target.closest(
+        "#ContactUsBtn, #inTouch, #ContactDiscuss"
+      );
+      if (target) {
         setIsActive(true);
-      });
-    }
+      }
+    };
+
+    document.addEventListener("click", handleClick);
 
     return () => {
-      if (contactBtn) {
-        contactBtn.removeEventListener("click", () => {
-          setIsActive(true);
-        });
-      }
+      document.removeEventListener("click", handleClick);
     };
   }, []);
 

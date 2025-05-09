@@ -1,5 +1,13 @@
 import "./style.css";
 import "./javascript/horizontal-scroll.js";
+import "./javascript/sticky-move.js";
+import "./javascript/marquee.js";
+import "./javascript/smoothScroll.js";
+import "./javascript/mapbox.js";
+import "./javascript/industry.js";
+import "./javascript/scale.js";
+import "./javascript/animation.js";
+import "./javascript/no-move.js";
 
 import React from "react";
 import { createRoot } from "react-dom/client";
