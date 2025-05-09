@@ -4,19 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yeta</title>
-    <script type="module" crossorigin src="/yeta-new/assets/main-HcKtDAb_.js"></script>
-    <link rel="stylesheet" crossorigin href="/yeta-new/assets/main-Bf3hIpxI.css">
+    <link
+      rel="icon"
+      type="image/png"
+      href="/yeta-new/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/yeta-new/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/yeta-new/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/yeta-new/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Yeta" />
+    <link rel="manifest" href="/yeta-new/favicon/site.webmanifest" />
+    <script type="module" crossorigin src="/yeta-new/assets/main-Cskml2tw.js"></script>
+    <link rel="stylesheet" crossorigin href="/yeta-new/assets/main-CZ1xBc2H.css">
   </head>
   <body class="Main">
     <div class="my-navbar"></div>
     <div class="ContactModalWrap"></div>
     <div class="O_FirstSection">
-      <div class="A_FirstSectionModal">
-        Complex logistics processes with Yeta
+      <div class="W_TabsWrapFirst">
+        <div class="W_Tabs">
+          <div class="Tab">
+            <p class="button">Charter Services</p>
+          </div>
+          <div class="Tab">
+            <p class="button">International Trucking</p>
+          </div>
+          <div class="Tab">
+            <p class="button">Domestic Trucking</p>
+          </div>
+          <div class="Tab">
+            <p class="button">See all</p>
+          </div>
+        </div>
+      </div>
+      <div id="anim"></div>
+      <div class="LandingScreenWrap">
+        <div class="LandingTextWrap">
+          <h2 class="BigTitle">Global Logistics Solutions</h2>
+          <p>
+            Complex logistics processes — from Charter Flights
+            to Freight Delivery
+          </p>
+        </div>
+
+        <div class="A_FirstSectionModal" id="inTouch">Get in touch</div>
       </div>
     </div>
     <div class="ScrollWrap">
       <div class="ScrollContent">
+        <div class="A_FirstSectionModal Abs" id="inTouch">Get in touch</div>
         <div class="plug"></div>
         <div class="P_Long">
           <div class="T_Block">
@@ -34,14 +75,16 @@
                   </div>
                 </div>
                 <div class="W_BoxRight">
-                  <div class="A_Button">
-                    <p class="button">Discover About Us</p>
-                    <div class="A_IconsNavigationIcon"></div>
-                  </div>
+                  <a href="./about.html">
+                    <div class="A_Button">
+                      <p class="button">Discover About Us</p>
+                      <div class="A_IconsNavigationIcon"></div>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="W_1440pxWrap">
+            <div class="W_1440pxWrap Shown">
               <div class="O_Box">
                 <p>Our Core Values</p>
                 <div class="W_BoxTripple">
@@ -73,10 +116,12 @@
                         Supporting communities through sustainable practices
                       </p>
                     </div>
-                    <div class="A_Button Clear">
-                      <p class="button">Explore</p>
-                      <div class="A_IconsNavigationIcon Grey"></div>
-                    </div>
+                    <a href="./sustainability.html">
+                      <div class="A_Button Clear">
+                        <p class="button">Explore</p>
+                        <div class="A_IconsNavigationIcon Grey"></div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -96,10 +141,12 @@
                   </div>
                 </div>
                 <div class="W_BoxRight">
-                  <div class="A_Button Blue">
-                    <p class="button">Explore</p>
-                    <div class="A_IconsNavigationIcon Grey"></div>
-                  </div>
+                  <a href="./services.html">
+                    <div class="A_Button Blue">
+                      <p class="button">Explore</p>
+                      <div class="A_IconsNavigationIcon Grey"></div>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -115,10 +162,7 @@
                       />
                     </div>
                     <div class="A_ServicesDescription">
-                      <p class="button">
-                        <br />
-                        Multimodal Solutions
-                      </p>
+                      <p class="button height">Multimodal Solutions</p>
                       <div class="A_Button Clear">
                         <p class="button">Explore</p>
                         <div class="A_IconsNavigationIcon"></div>
@@ -134,7 +178,9 @@
                       />
                     </div>
                     <div class="A_ServicesDescription">
-                      <p class="button">Air Freight and Charter Services</p>
+                      <p class="button height">
+                        Air Freight and Charter Services
+                      </p>
                       <div class="A_Button Clear">
                         <p class="button">Explore</p>
                         <div class="A_IconsNavigationIcon"></div>
@@ -150,7 +196,9 @@
                       />
                     </div>
                     <div class="A_ServicesDescription">
-                      <p class="button">International and Domestic Trucking</p>
+                      <p class="button height">
+                        International and Domestic Trucking
+                      </p>
                       <div class="A_Button Clear">
                         <p class="button">Explore</p>
                         <div class="A_IconsNavigationIcon"></div>
@@ -166,10 +214,7 @@
                       />
                     </div>
                     <div class="A_ServicesDescription">
-                      <p class="button">
-                        <br />
-                        Dangerous goods
-                      </p>
+                      <p class="button height">Dangerous goods</p>
                       <div class="A_Button Clear">
                         <p class="button">Explore</p>
                         <div class="A_IconsNavigationIcon"></div>
@@ -185,7 +230,7 @@
                       />
                     </div>
                     <div class="A_ServicesDescription">
-                      <p class="button">
+                      <p class="button height">
                         Logistics Consulting & Route Analysis
                       </p>
                       <div class="A_Button Clear">
@@ -203,7 +248,9 @@
                       />
                     </div>
                     <div class="A_ServicesDescription">
-                      <p class="button ShortenStorage">Warehousing & Storage</p>
+                      <p class="button ShortenStorage height">
+                        Warehousing & Storage
+                      </p>
                       <div class="A_Button Clear">
                         <p class="button">Explore</p>
                         <div class="A_IconsNavigationIcon"></div>
@@ -325,7 +372,7 @@
                 </div>
               </div>
             </div>
-            <div class="W_1440pxWrap">
+            <div class="W_1440pxWrap Shown">
               <div class="O_Industry IndustryShown" id="ind01">
                 <div class="O_Text">
                   <div class="W_Box">
@@ -471,7 +518,7 @@
                     <p>Offices in KZ and UAE</p>
                   </div>
                 </div>
-                <div class="A_Button Blue">
+                <div class="A_Button Blue" id="ContactDiscuss">
                   <p class="button">Discuss the order</p>
                   <div class="A_IconsNavigationIcon Grey"></div>
                 </div>
@@ -497,7 +544,7 @@
                     <p>from Turkey to Kazakhstan</p>
                   </div>
                   <div class="A_Button Clear">
-                    <p class="button">Explore</p>
+                    <a href="./cases.html"><p class="button">Explore</p></a>
                     <div class="A_IconsNavigationIcon Grey"></div>
                   </div>
                 </div>
@@ -516,8 +563,10 @@
                     <p>from Turkey to Kazakhstan</p>
                   </div>
                   <div class="A_Button Clear">
-                    <p class="button">Explore</p>
-                    <div class="A_IconsNavigationIcon Grey"></div>
+                    <div class="A_Button Clear">
+                      <a href="./cases.html"><p class="button">Explore</p></a>
+                      <div class="A_IconsNavigationIcon Grey"></div>
+                    </div>
                   </div>
                 </div>
                 <img
@@ -533,8 +582,10 @@
                     <p>from UAE and China to Kazakhstan</p>
                   </div>
                   <div class="A_Button Clear">
-                    <p class="button">Explore</p>
-                    <div class="A_IconsNavigationIcon Grey"></div>
+                    <div class="A_Button Clear">
+                      <a href="./cases.html"><p class="button">Explore</p></a>
+                      <div class="A_IconsNavigationIcon Grey"></div>
+                    </div>
                   </div>
                 </div>
                 <img
@@ -609,10 +660,18 @@
               <div class="A_BgCircle"></div>
               <div class="O_FooterDownsideBox">
                 <div class="W_FooterNavigation">
-                  <p class="button">About</p>
-                  <p class="button">Solutions</p>
-                  <p class="button">Sustainability</p>
-                  <p class="button">Cases</p>
+                  <a href="./about.html">
+                    <p class="button">About</p>
+                  </a>
+                  <a href="./services.html">
+                    <p class="button">Solutions</p>
+                  </a>
+                  <a href="./sustainability.html">
+                    <p class="button">Sustainability</p>
+                  </a>
+                  <a href="./cases.html">
+                    <p class="button">Cases</p>
+                  </a>
                 </div>
                 <div class="O_FooterContacts">
                   <div class="W_FooterContactsContent">
@@ -655,5 +714,6 @@
       </div>
     </div>
 
+    <script src="./lottie.js"></script>
   </body>
 </html>
