@@ -1,4 +1,11 @@
 import "./style.css";
+import "./stylesheets/reset.css";
+import "./stylesheets/fonts.css";
+import "./stylesheets/typekit.css";
+import "./stylesheets/basics.css";
+import "./stylesheets/vars.css";
+import "./stylesheets/responsive.css";
+
 import "./javascript/horizontal-scroll.js";
 import "./javascript/sticky-move.js";
 import "./javascript/marquee.js";

@@ -1,9 +1,3 @@
-@import url("./stylesheets/reset.css");
-@import url("./stylesheets/fonts.css");
-@import url("./stylesheets/typekit.css");
-@import url("./stylesheets/basics.css");
-@import url("./stylesheets/vars.css");
-
 * {
   box-sizing: border-box;
 }
@@ -250,6 +244,17 @@
   transform: translateX(-50%);
 }
 
+@keyframes slideInFromLow {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .LandingScreenWrap {
   padding-top: 146px;
   width: 100%;
@@ -273,6 +278,8 @@
 }
 
 .LandingTextWrap {
+  animation: 0.6s ease-out 0s 1 slideInFromLow;
+
   display: flex;
   flex-direction: column;
 
@@ -738,25 +745,7 @@ body.test_anim {
   }
 }
 
-.O_Services {
-  transition: 0.4s;
-  position: relative;
-  width: 20.833vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  overflow: hidden;
-
-  cursor: pointer;
-  user-select: none;
-
-  .A_Image {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
+a {
   &:nth-child(1) .A_Image {
     background-image: url("./images/A_Image01.jpg");
   }
@@ -781,9 +770,6 @@ body.test_anim {
     background-image: url("./images/A_Image06.jpg");
   }
 
-  &:nth-child(6) {
-  }
-
   &:nth-child(2) .A_ServicesDescription {
     max-width: 190px;
   }
@@ -794,6 +780,26 @@ body.test_anim {
 
   &:nth-child(5) .A_ServicesDescription {
     max-width: 174px;
+  }
+}
+
+.O_Services {
+  transition: 0.4s;
+  position: relative;
+  width: 20.833vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  overflow: hidden;
+
+  cursor: pointer;
+  user-select: none;
+
+  .A_Image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   &:hover {
@@ -1977,6 +1983,33 @@ p.small.pShown {
   h3 {
     font-weight: 400;
   }
+}
+
+@keyframes slideInFrom {
+  0% {
+    transform: translateY(-30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.ScrollDownWrap {
+  animation: 0.6s ease-out 0s 1 slideInFrom;
+
+  transition: ease 0.1s;
+  position: absolute;
+  bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ScrollDownArrow {
+  width: 14px;
+  aspect-ratio: 1;
 }
 
 .Wrap1184px {
