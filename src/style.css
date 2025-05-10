@@ -17,12 +17,13 @@
 
 .WrapDrop {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
 
+  border-radius: 4px;
   backdrop-filter: blur(10px);
   background: rgba(254, 255, 255, 0.6);
-  padding: 20px;
+  padding: 12px;
 }
 
 .O_Header {
@@ -30,7 +31,7 @@
   background-color: var(--white);
   position: fixed;
   width: 100%;
-  height: 70px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,10 +64,10 @@
     visibility: hidden;
     flex-direction: column;
     position: absolute;
-    margin-top: 70px;
+    margin-top: 60px;
     gap: 4px;
     width: 250px;
-    padding-top: 4px;
+    padding-top: 8px;
     top: 0;
 
     p.button {
@@ -167,25 +168,11 @@
 }
 
 #anim {
-  /* mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 30%,
-    black 100%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 30%,
-    black 0%,
-    transparent 100%
-  ); */
-
+  mask-image: radial-gradient(black 40%, transparent 50%);
   position: absolute;
-
+  object-fit: contain;
   top: 70px;
-  width: 100%;
+  width: 1920px;
   z-index: -1;
   height: 774px;
 }
@@ -194,6 +181,11 @@
   max-height: 100%;
   max-width: 100%;
   overflow: hidden;
+}
+
+.lottie {
+  z-index: 99999;
+  position: absolute;
 }
 
 .O_FirstSection {
@@ -993,7 +985,7 @@ body.test_anim {
   justify-content: center;
 
   position: fixed;
-  top: 76px;
+  top: 70px;
 
   transition: 0.1s;
 
@@ -1341,13 +1333,22 @@ p.button.selected {
 
   gap: 8px;
 
-  background-color: var(--GreyMedium);
+  background: rgba(233, 240, 246, 0.82);
 
   padding: 8px 14px;
   height: fit-content;
   border-radius: 9999px;
 
   cursor: pointer;
+
+  &:hover {
+    color: var(--BlueExtra);
+    background-color: var(--GreyMedium);
+
+    .A_IconsNavigationIcon {
+      background-image: url("./images/A_IconsNavigationIconHover.svg");
+    }
+  }
 }
 
 .W_FormDownside {
@@ -1368,9 +1369,11 @@ p.button.selected {
 }
 
 .A_BgCircle {
-  background-image: url("./images/A_Circle.svg");
+  background-image: url("./images/A_Circle3.png");
   background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0px 4px 124.5px rgba(83, 203, 255, 0.28));
 
   position: absolute;
   bottom: 0;
@@ -1433,6 +1436,13 @@ p.button.selected {
   gap: 96px;
 
   color: var(--white);
+
+  p.button {
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
 }
 
 .A_FooterContactsContentItemIconLinkedin {
@@ -1604,7 +1614,7 @@ ul {
   list-style-position: inside;
   list-style: disc;
   color: rgba(255, 255, 255, 0.7);
-  margin-left: 20px;
+  margin-left: 28px;
 }
 
 .About_Section02Wrap {
@@ -1941,6 +1951,7 @@ p.small.pShown {
 }
 
 .T_Scope {
+  gap: 20px;
   display: none;
   width: 100%;
   max-width: 1440px;
@@ -1962,21 +1973,60 @@ p.small.pShown {
 
   width: 100%;
   max-width: 382px;
+
+  h3 {
+    font-weight: 400;
+  }
+}
+
+.Wrap1184px {
+  width: 100%;
+  max-width: 1184px;
+  margin-top: 92px;
+}
+
+.WrapCenter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .ScopeContentImage {
   width: 100%;
-  max-width: 382px;
+  max-width: 400px;
   border-radius: 4px;
   object-fit: cover;
 }
 
+.ScopeTextIcon {
+  width: 50px;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+}
+
+.ScopeContentTextWrap {
+  display: flex;
+  gap: 12px;
+}
+
 .ScopeContent {
+  position: relative;
+  padding-top: 46px;
+
   width: 100%;
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  gap: 128px;
+  gap: 64px;
+
+  ul {
+    color: var(--BlueLarge2);
+  }
+}
+
+.Bullets {
+  display: flex;
+  flex-direction: column;
 }
 
 .ScopeContentText {
@@ -2113,7 +2163,7 @@ p.small.pShown {
   }
 
   .W_BoxLeft {
-    grid-column: 2/18;
+    grid-column: 2/16;
 
     border-right: 1px solid rgba(1, 69, 120, 0.24);
     width: 100%;
@@ -2130,7 +2180,7 @@ p.small.pShown {
   }
 
   .W_BoxRight {
-    grid-column: 18/25;
+    grid-column: 17/25;
     background-image: url("./images/ServicesImage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -2173,6 +2223,10 @@ p.small.pShown {
       height: 200px;
     }
   }
+
+  h2 {
+    color: var(--BlueLarge2);
+  }
 }
 
 .margin {
@@ -2203,6 +2257,8 @@ p.small.pShown {
   backdrop-filter: blur(25px);
 
   .W_BoxLeft {
+    max-width: 868px;
+    border-right: none;
     display: flex;
     flex-direction: column;
     gap: 28px;
@@ -2210,6 +2266,7 @@ p.small.pShown {
     padding: 64px 64px 64px 128px;
 
     .A_Button {
+      cursor: pointer;
       gap: 12px;
       padding: 16px 24px;
       border-radius: 4px;
@@ -2223,7 +2280,33 @@ p.small.pShown {
   }
 
   .W_BoxRight {
-    background-image: url("./images/Service1Image.jpg");
+    background-position: center;
     background-size: cover;
+    border-left: 1px solid rgba(1, 69, 120, 0.24);
+    max-height: none;
   }
+}
+
+#ServiceCoverImage01 {
+  background-image: url("./images/cases/covers/ServiceCoverImage01.jpg");
+}
+
+#ServiceCoverImage02 {
+  background-image: url("./images/cases/covers/ServiceCoverImage02.jpg");
+}
+
+#ServiceCoverImage03 {
+  background-image: url("./images/cases/covers/ServiceCoverImage03.jpg");
+}
+
+#ServiceCoverImage04 {
+  background-image: url("./images/cases/covers/ServiceCoverImage04.jpg");
+}
+
+#ServiceCoverImage05 {
+  background-image: url("./images/cases/covers/ServiceCoverImage05.jpg");
+}
+
+#ServiceCoverImage06 {
+  background-image: url("./images/cases/covers/ServiceCoverImage06.jpg");
 }

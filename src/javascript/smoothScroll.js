@@ -7,7 +7,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 ScrollSmoother.create({
   wrapper: ".ScrollWrap",
   content: ".ScrollContent",
-  effects: true,
+  effects: false,
+  smoothTouch: false,
 });
 
 // Пинning для FixedElem
@@ -21,14 +22,3 @@ gsap.to(".FixedElem", {
     scrub: false,
   },
 });
-
-// gsap.to(".W_TabsWrapFirst", {
-//   scrollTrigger: {
-//     trigger: ".W_TabsWrapFirst",
-//     start: "bottom", // когда верх FixedElem доходит до верха вьюпорта
-//     end: "+=100", // когда нижняя граница FixedElem прокрутится на 500px
-//     pin: true,
-//     pinSpacing: true, // чтобы остальной контент не прыгал
-//     scrub: false,
-//   },
-// });

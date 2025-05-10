@@ -32,15 +32,24 @@ export default function Navbar() {
   }, []);
 
   const services = [
-    { title: "Multimodal Solutions", url: "./service-01.html" },
-    { title: "Air Freight and Charter Services", url: "./service-02.html" },
-    { title: "International and Domestic Trucking", url: "./service-03.html" },
-    { title: "Dangerous goods", url: "./service-04.html" },
+    { title: "Multimodal Solutions", url: "./multimodal-solutions.html" },
     {
-      title: "Logistics Consulting & Route Analysis",
-      url: "./service-05.html",
+      title: "Air Freight and Charter Services",
+      url: "./air-freight-and-charter-services.html",
     },
-    { title: "Warehousing & Storage", url: "./service-06.html" },
+    {
+      title: "International and Domestic Trucking",
+      url: "./international-and-domestic-trucking.html",
+    },
+    { title: "Dangerous goods", url: "./dangerous-goods.html" },
+    {
+      title: "Logistics Consulting & Route Analysis",
+      url: "./logistics-consulting-and-route-analysis.html",
+    },
+    {
+      title: "Warehousing & Storage",
+      url: "./warehousing-and-storage.html",
+    },
   ];
 
   return (
@@ -60,9 +69,9 @@ export default function Navbar() {
             {services.map((service, i) => (
               <div className="WrapDrop" key={i}>
                 <img
-                  src="./A_NavbarServicesIcon.svg"
+                  src={`./navbarDropdown/A_NavbarServicesIcon0${i + 1}.svg`}
                   className="A_NavbarServicesIcon"
-                  alt="Globe icon"
+                  alt="Service icon"
                 />
                 <a href={service.url}>
                   <p className="button">{service.title}</p>

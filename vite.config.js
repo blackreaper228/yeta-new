@@ -13,12 +13,18 @@ export default defineConfig({
         cases: resolve(__dirname, "cases.html"),
         sustainability: resolve(__dirname, "sustainability.html"),
         services: resolve(__dirname, "services.html"),
-        service01: resolve(__dirname, "service-01.html"),
-        service02: resolve(__dirname, "service-02.html"),
-        service03: resolve(__dirname, "service-03.html"),
-        service04: resolve(__dirname, "service-04.html"),
-        service05: resolve(__dirname, "service-05.html"),
-        service06: resolve(__dirname, "service-06.html"),
+        service01: resolve(__dirname, "multimodal-solutions.html"),
+        service02: resolve(__dirname, "air-freight-and-charter-services.html"),
+        service03: resolve(
+          __dirname,
+          "international-and-domestic-trucking.html"
+        ),
+        service04: resolve(__dirname, "dangerous-goods.html"),
+        service05: resolve(
+          __dirname,
+          "logistics-consulting-and-route-analysis.html"
+        ),
+        service06: resolve(__dirname, "warehousing-and-storage.html"),
         test: resolve(__dirname, "test-page.html"),
       },
     },
