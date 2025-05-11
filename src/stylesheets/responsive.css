@@ -1,2 +1,371 @@
-@media only screen and (max-device-width: 462px) {
+@media only screen and (min-device-width: 360px) and (max-device-width: 468px) {
+  h1.ExtraTitle {
+    font-size: 128px;
+    letter-spacing: -5px;
+    line-height: 110%;
+  }
+
+  h2.Footer {
+    font-size: 64px;
+    letter-spacing: -2px;
+    line-height: 78px;
+  }
+
+  h2.BigTitle {
+    font-size: 56px;
+    letter-spacing: -2px;
+    line-height: 110%;
+  }
+
+  h3.Title {
+    font-size: 28px;
+    letter-spacing: -1px;
+    line-height: 130%;
+  }
+
+  .TitleBold {
+    font-size: 28px;
+    letter-spacing: -2px;
+    line-height: 110%;
+  }
+
+  h4.Subtitle {
+    font-size: 28px;
+    letter-spacing: -1px;
+    line-height: 130%;
+  }
+
+  h4.SubtitleBold {
+    font-size: 28px;
+    letter-spacing: -1px;
+    line-height: 130%;
+  }
+
+  p {
+    font-size: 19px;
+    letter-spacing: -0.5px;
+    line-height: 140%;
+  }
+
+  p.button {
+    font-size: 19px;
+    letter-spacing: -0.5px;
+    line-height: 24px;
+  }
+
+  p.small {
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    line-height: 140%;
+  }
+
+  .W_TabsWrapFirst {
+    display: none;
+  }
+
+  .A_FirstSectionModalMobile {
+    font-size: 16px;
+    margin-bottom: 0px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .LandingScreenWrap {
+    padding-top: 0px;
+  }
+
+  .Abs {
+    top: 478px;
+    position: fixed;
+  }
+
+  #anim {
+    display: none;
+  }
+
+  #anim2 {
+    width: 600px;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .LandingTextWrap {
+    display: none;
+  }
+
+  .ScrollDownWrap {
+    display: none;
+  }
+
+  .O_FirstSection {
+    display: none;
+  }
+
+  .A_Logo {
+    left: 12px;
+    transform: none;
+    top: 50%;
+
+    transform: translateY(-50%);
+  }
+
+  .LandingFirstScreenMobile {
+    gap: 32px;
+    padding: 0px 20px 48px 20px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    display: flex;
+    height: 800px;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(215, 231, 243, 0.28) 62.37%,
+        #0066b1 96%
+      ),
+      var(--Blue-Large, #0074ca);
+  }
+
+  .T_Block {
+    background: #0066b1;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    gap: 0px;
+
+    .W_TitleBlockWrap {
+      border-top: none;
+      border-bottom: none;
+      padding: 20px;
+    }
+  }
+
+  .LandingFirstScreenMobileWrap {
+    h2 {
+      font-weight: 400;
+    }
+  }
+
+  .O_TitleBlock {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    .W_BoxRight {
+      a {
+        width: 100%;
+      }
+
+      padding-right: 0px;
+      width: 100%;
+      justify-content: flex-start;
+
+      .A_Button {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+
+        .A_IconsNavigationIcon {
+          display: none;
+        }
+      }
+    }
+
+    .W_BoxLeft {
+      padding: 0px;
+      width: 100%;
+      border-right: none;
+
+      .M_Text {
+        padding-right: 0px;
+      }
+    }
+  }
+
+  .W_1440pxWrap {
+    .O_Box > p {
+      display: none;
+    }
+    .O_Box {
+      padding: 0px;
+      .W_BoxTripple {
+        flex-direction: column;
+
+        .O_Text {
+          padding: 20px;
+
+          .W_Box {
+            position: relative;
+          }
+          .ShortenTitle {
+            max-width: none;
+          }
+
+          p {
+            font-size: 16px;
+            margin-top: -12px;
+          }
+
+          h3 {
+            font-weight: 400;
+            width: 100%;
+          }
+        }
+
+        .O_Text:nth-child(3) {
+          a {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .O_TitleBlock {
+    &.Second {
+      .W_BoxLeft {
+        border-right: none;
+        padding: 0px;
+      }
+    }
+  }
+
+  .W_TitleBlockWrap.Second {
+    padding: 20px;
+
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .A_Logo {
+    width: 80px;
+    height: 28px;
+  }
+
+  .burgerMenuModal {
+    z-index: 99999999999;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(
+      90deg,
+      rgba(254, 255, 255, 0) -38.32%,
+      var(--Blue-Large-2, #005396) 100%
+    );
+    backdrop-filter: blur(22px);
+
+    .O_Header {
+      background: none;
+      position: relative;
+    }
+  }
+
+  .W_FormContentRow {
+    flex-direction: column;
+  }
+
+  .O_Form {
+    width: 100%;
+
+    form {
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  .W_FormDownside {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    .A_Button {
+      align-self: stretch;
+      justify-content: center;
+    }
+  }
+
+  .O_Form {
+    width: calc(100vw - 24px);
+
+    h2 {
+      font-size: 56px;
+      font-weight: 300;
+    }
+
+    .A_ModalCloseIcon {
+      top: 16px;
+      right: 16px;
+      width: 20px;
+    }
+  }
+
+  .T_FooterDownside {
+    padding: 0px 20px;
+
+    .A_BgCircle {
+      width: 1176px;
+      height: 528px;
+    }
+
+    .W_FooterNavigation {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .O_FooterContacts {
+      h3 {
+        font-size: 40px;
+        max-width: 300px;
+      }
+    }
+
+    .O_FooterDownsideBox {
+      height: auto;
+      gap: 24px;
+      padding-top: 48px;
+      padding-bottom: 24px;
+    }
+
+    .W_FooterContactsContent {
+      flex-direction: column-reverse;
+      gap: 16px;
+    }
+
+    .W_FooterDownsideWrap {
+      gap: 16px;
+
+      padding-top: 24px;
+      padding-bottom: 24px;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .W_FooterDownsideWrapText {
+        height: auto;
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+    }
+  }
+
+  .T_Footer {
+    gap: 112px;
+  }
+}
+
+@media only screen and (max-device-width: 359px) {
 }

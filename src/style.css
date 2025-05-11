@@ -105,7 +105,14 @@
     display: none;
     width: 36px;
     aspect-ratio: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     background-image: url("./images/BurgerMenu.svg");
+
+    &.White {
+      background-image: url("./images/BurgerMenuWhite.svg");
+    }
   }
 }
 
@@ -134,6 +141,10 @@
 }
 
 .A_Logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
   background-image: url("./images/A_Logo.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -143,6 +154,10 @@
 
   &:hover {
     background-image: url("./images/A_Logo02.svg");
+  }
+
+  &.White {
+    background-image: url("./images/A_LogoWhite.svg");
   }
 }
 
@@ -154,21 +169,31 @@
 }
 
 .ScrollWrap {
-  position: relative;
+  position: absolute;
+  z-index: 2;
+  /* margin-top: 95vh; */
+  top: 1000px;
 }
 
 .ScrollContent {
   position: relative;
+  /* margin-top: 95vh; */
 }
 
 #anim {
   mask-image: radial-gradient(black 40%, transparent 50%);
   position: absolute;
   object-fit: contain;
-  top: 70px;
   width: 1920px;
   z-index: -1;
-  height: 774px;
+}
+
+#anim2 {
+  mask-image: radial-gradient(black 40%, transparent 50%);
+  position: absolute;
+  object-fit: contain;
+  width: 1920px;
+  z-index: -1;
 }
 
 #anim svg {
@@ -183,6 +208,7 @@
 }
 
 .O_FirstSection {
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -196,7 +222,7 @@
     #4aabf4 38.87%,
     var(--Blue-Large, #0074ca) 88.87%
   );
-  z-index: -1;
+  z-index: 1;
   top: 0;
   /* background-image: url("./images/Q_FirstSectionBG.png"); */
   background-size: cover;
@@ -292,6 +318,7 @@
   width: 100%;
   position: relative;
   /* margin-top: 95vh; */
+  z-index: 2;
 }
 
 .plug {
@@ -1326,6 +1353,7 @@ p.button.selected {
 }
 
 .W_FormDownside {
+  flex-direction: row;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -1655,6 +1683,8 @@ ul {
 }
 
 .ContactModalWrap {
+  z-index: 9999999999999999;
+
   display: flex;
   user-select: none;
   width: 100%;
@@ -1666,7 +1696,6 @@ ul {
   height: 100vh;
   position: fixed;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 999;
   justify-content: center;
   align-items: center;
 
@@ -2342,4 +2371,224 @@ p.small.pShown {
 
 #ServiceCoverImage06 {
   background-image: url("./images/cases/covers/ServiceCoverImage06.jpg");
+}
+
+.LandingFirstScreenMobile {
+  position: relative;
+  display: none;
+  a {
+    width: 100%;
+  }
+}
+
+.LandingFirstScreenMobileWrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  h2 {
+    color: var(--white);
+    font-weight: 400;
+  }
+}
+
+.MobileButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 4px;
+  height: 40px;
+  padding: 16px 32px;
+
+  p {
+    color: var(--BlueLarge2) !important;
+  }
+}
+
+.TagMobile {
+  border-radius: 99999px;
+  width: 100%;
+  max-width: 206px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--white);
+  p {
+    color: var(--BlueExtra) !important;
+  }
+}
+
+.A_FirstSectionModalMobile {
+  z-index: 999999;
+  cursor: pointer;
+  width: fit-content;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 3px;
+  margin-bottom: 80px;
+
+  color: var(--BlueLarge2);
+
+  text-align: center;
+  font-family: "Onest";
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 130%;
+  letter-spacing: -0.1px;
+  background-color: var(--white);
+}
+
+.burgerMenuModal {
+  display: none;
+}
+
+.RightSide {
+  display: flex;
+  gap: 12px;
+}
+
+.MultiLangBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.MultiLangArrow {
+  width: 8px;
+  height: 5px;
+}
+
+.LangWrap {
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  p {
+    color: var(--white);
+    font-weight: 400;
+  }
+}
+
+.SelectedBtn {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 4px;
+}
+
+.UnderLine {
+  width: 100%;
+  height: 2px;
+  background-color: var(--white);
+}
+
+.SecondaryBtn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 64px;
+  height: 44px;
+  top: 74px;
+
+  border-radius: 4px;
+  background: rgba(254, 255, 255, 0.6);
+
+  p {
+    color: var(--BlueLarge2);
+    font-weight: 400;
+  }
+
+  &.Shown {
+    display: flex;
+  }
+}
+
+.burgerMenuModalBody {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 32px 20px 32px 20px;
+
+  .A_Button {
+    all: unset;
+    display: flex;
+    background-color: var(--white);
+    padding: 12px 24px;
+    gap: 12px;
+    color: var(--BlueLarge2);
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+  }
+}
+
+.BurgerMenuBtns {
+  gap: 12px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+
+  p {
+    color: var(--white);
+    font-size: 28px;
+  }
+}
+
+.DropDownSolutions {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  p {
+    font-size: 19px;
+    text-align: right;
+    max-width: 212px;
+  }
+}
+
+.BurgerSolutionsDropdown {
+  display: none;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  flex-direction: column;
+  gap: 18px;
+
+  &.ShownBtns {
+    display: flex;
+  }
+}
+
+.BurgerSolutions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  p {
+    color: var(--white);
+    font-size: 28px;
+  }
+}
+
+.BurgerMenuWrap {
+  position: absolute;
+  left: 0;
 }

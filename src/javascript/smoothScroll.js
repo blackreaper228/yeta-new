@@ -22,3 +22,14 @@ gsap.to(".FixedElem", {
     scrub: false,
   },
 });
+
+gsap.to(".O_FirstSection", {
+  scrollTrigger: {
+    trigger: ".O_FirstSection",
+    start: "top top",
+    end: "+=1000", // высота скролла, на которой он будет зафиксирован
+    pin: true,
+    pinSpacing: false, // отключаем отступ после pin, если нужно перекрытие
+    scrub: false,
+  },
+});

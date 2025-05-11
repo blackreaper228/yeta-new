@@ -81,3 +81,11 @@ p.small {
 .Bold {
   font-weight: 400 !important;
 }
+
+.m40 {
+  font-size: 40px !important;
+}
+
+.m16 {
+  font-size: 16px !important;
+}

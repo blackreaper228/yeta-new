@@ -95,7 +95,7 @@ export default function Navbar() {
           <p className="button">Contact Us</p>
         </div>
       </div>
-      <div className="BurgerMenu"></div>
+      <div className="BurgerMenu" id="BurgerOpen"></div>
     </div>
   );
 }
