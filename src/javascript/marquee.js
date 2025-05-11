@@ -1,33 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".logos-track");
-  if (!track) return;
+  const inner = track.querySelector(".track-inner");
 
-  // Клонируем логотипы для бесшовной анимации (один раз)
-  const logos = Array.from(track.children);
-  if (logos.length && logos.length === track.childElementCount) {
-    logos.forEach((logo) => {
-      const clone = logo.cloneNode(true);
-      track.appendChild(clone);
-    });
+  if (!track || !inner) return;
+
+  // Клонируем один раз
+  const clone = inner.cloneNode(true);
+  track.appendChild(clone);
+
+  function updateDistanceAndDuration() {
+    const fullWidth = inner.getBoundingClientRect().width;
+
+    // Учитываем gap между двумя track-inner
+    const trackStyles = getComputedStyle(track);
+    const trackGap = parseFloat(trackStyles.gap || 0);
+
+    const scrollDistance = fullWidth + trackGap;
+    track.style.setProperty("--scroll-distance", `-${scrollDistance}px`);
+
+    // Автоматическая длительность на основе расстояния
+    const speed = 100; // px/sec — можно подстроить
+    const duration = scrollDistance / speed;
+    track.style.setProperty("--duration", `${duration}s`);
   }
 
-  function setMarqueeWidth() {
-    // Считаем ширину только первого набора логотипов
-    let width = 0;
-    for (let i = 0; i < logos.length; i++) {
-      width += logos[i].getBoundingClientRect().width;
-    }
-    track.style.setProperty("--marquee-width", `calc(${width}px + 4.861vw)`);
-  }
-
-  setMarqueeWidth();
-  window.addEventListener("resize", setMarqueeWidth);
-
-  //   // Пауза при наведении
-  //   track.addEventListener("mouseenter", () => {
-  //     track.style.animationPlayState = "paused";
-  //   });
-  //   track.addEventListener("mouseleave", () => {
-  //     track.style.animationPlayState = "running";
-  //   });
+  updateDistanceAndDuration();
+  window.addEventListener("resize", updateDistanceAndDuration);
 });

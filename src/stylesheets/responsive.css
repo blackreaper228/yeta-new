@@ -85,11 +85,21 @@
     display: none;
   }
 
-  #anim2 {
-    width: 600px;
-    top: 15%;
+  .animWrap {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100dvh;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  #anim2 {
+    position: relative;
+    width: 1000px;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-58%);
     z-index: 1;
   }
 
@@ -121,7 +131,7 @@
     justify-content: flex-end;
     align-items: flex-start;
     display: flex;
-    height: 800px;
+    height: 100dvh;
     background:
       linear-gradient(
         180deg,
@@ -185,6 +195,10 @@
 
       .M_Text {
         padding-right: 0px;
+      }
+
+      .A_Tag {
+        display: none;
       }
     }
   }
@@ -317,8 +331,10 @@
     padding: 0px 20px;
 
     .A_BgCircle {
-      width: 1176px;
+      width: 100%;
       height: 528px;
+
+      background-size: cover;
     }
 
     .W_FooterNavigation {
@@ -364,6 +380,219 @@
 
   .T_Footer {
     gap: 112px;
+  }
+
+  .T_Block2 {
+    padding: 0px;
+  }
+
+  .MobileShow {
+    display: flex !important;
+  }
+
+  .DesktopShow {
+    display: none !important;
+  }
+
+  .A_LogoTrusted {
+    &.l1 {
+      width: 78px;
+      height: 32px;
+    }
+
+    &.l2 {
+      width: 86px;
+      height: 42px;
+    }
+
+    &.l3 {
+      width: 78px;
+      height: 39px;
+    }
+
+    &.l4 {
+      width: 115px;
+      height: 31px;
+    }
+
+    &.l5 {
+      width: 104px;
+      height: 35px;
+    }
+
+    &.l6 {
+      width: 67px;
+      height: 31px;
+    }
+
+    &.l7 {
+      width: 117px;
+      height: 25px;
+    }
+
+    &.l8 {
+      width: 54px;
+      height: 49px;
+    }
+  }
+
+  .logos-track {
+    gap: 96px;
+    animation: scroll 30s linear infinite;
+  }
+
+  .track-inner {
+    align-items: center;
+
+    display: flex;
+    gap: 96px;
+  }
+
+  .O_TitleTabs {
+    gap: 20px;
+    h3.TitleBold {
+      font-size: 40px;
+      padding: 0px 20px;
+      text-align: center;
+    }
+  }
+
+  .W_Tabs {
+    flex-wrap: wrap;
+    padding: 4px 20px;
+    justify-content: flex-start;
+  }
+
+  .O_Industry {
+    padding: 0px 20px;
+    flex-direction: column;
+    gap: 20px;
+
+    h3 {
+      font-size: 40px;
+    }
+  }
+
+  .T_Industries {
+    padding: 64px 0px;
+    gap: 32px;
+  }
+
+  .T_Numbers {
+    .W_BoxPlanet {
+      gap: 20px;
+      width: 100%;
+
+      .A_Planet {
+        width: 42px;
+      }
+      h1 {
+        font-size: 28px;
+        letter-spacing: -1px;
+        line-height: 130%;
+        font-weight: 400;
+        color: var(--BlueLarge2);
+      }
+
+      padding: 0px 20px;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+
+    .O_BoxNumbers {
+      padding: 20px 20px 0px 20px;
+      gap: 40px;
+      .A_Button {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .W_Numbers {
+        flex-direction: column;
+        .M_Numbers {
+          align-items: flex-start;
+          border-right: none;
+
+          &:nth-child(2) {
+            order: 1;
+          }
+          &:nth-child(1) {
+            order: 2;
+          }
+          &:nth-child(3) {
+            order: 3;
+          }
+
+          .MobileShow {
+            color: var(--BlueLarge2);
+          }
+
+          .DesktopShow {
+            color: var(--BlueLarge2);
+          }
+
+          p {
+            color: var(--BlueLarge2);
+            font-size: 14px;
+            font-weight: 400;
+          }
+
+          h4 {
+            font-size: 56px;
+            font-weight: 100;
+          }
+        }
+      }
+    }
+  }
+
+  .W_1440pxWrapNumbers {
+    padding-bottom: 64px;
+  }
+
+  .T_Cases {
+    padding: 0px 20px 64px 20px;
+    gap: 0;
+
+    .W_BoxCases {
+      .Title {
+        font-size: 40px;
+        padding: 64px 0px 52px 0px;
+        width: 100%;
+        text-align: center;
+      }
+      .M_BoxCases {
+        display: none;
+      }
+    }
+
+    .W_MapBox {
+      flex-direction: column;
+      gap: 20px;
+      .O_Text {
+        h3 {
+          font-size: 40px;
+        }
+        p {
+          font-weight: 200;
+        }
+      }
+    }
+  }
+
+  .W_1440pxWrapCarousel {
+    padding: 0px 20px;
+
+    .O_Services {
+      width: 300px;
+
+      .A_Image {
+        height: 250px;
+      }
+      &:last-child {
+        margin-right: 20px;
+      }
+    }
   }
 }
 

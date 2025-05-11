@@ -59,9 +59,9 @@ export default function BurgerMenuModal() {
               <p className="SubtitleBold">About Us</p>
             </a>
 
-            <div className="DropDownSolutions">
-              <div className="BurgerSolutions" onClick={toggleDropdown}>
-                <p className="SubtitleBold">Solutions</p>
+            <div className="DropDownServices">
+              <div className="BurgerServices" onClick={toggleDropdown}>
+                <p className="SubtitleBold">Services</p>
                 <img
                   src="./src/images/MultiLang.svg"
                   alt="Arrow down icon"
@@ -70,12 +70,12 @@ export default function BurgerMenuModal() {
               </div>
 
               <div
-                className={`BurgerSolutionsDropdown ${
+                className={`BurgerServicesDropdown ${
                   dropdownShown ? "ShownBtns" : ""
                 }`}
               >
                 <a href="./multimodal-solutions.html">
-                  <p className="SubtitleBold">Multimodal Solutions</p>
+                  <p className="SubtitleBold">Multimodal Services</p>
                 </a>
                 <a href="./air-freight-and-charter-services.html">
                   <p className="SubtitleBold">

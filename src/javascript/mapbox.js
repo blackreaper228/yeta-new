@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Массив кнопок и соответствующих элементов
   const btns = [
     {
       btn: "MapBtn01",
@@ -21,33 +20,48 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  btns.forEach(({ btn, box, scope, numbers }) => {
+  let currentIndex = 0;
+
+  function updateActive(index) {
+    btns.forEach(({ box, scope, numbers, btn }, i) => {
+      const el = document.getElementById(box);
+      const sc = document.getElementById(scope);
+      const num = document.getElementById(numbers);
+      const btnEl = document.getElementById(btn);
+
+      const isActive = i === index;
+
+      el?.classList.toggle("MapBoxShown", isActive);
+      sc?.classList.toggle("ScopeShown", isActive);
+      num?.classList.toggle("CasesNumbersShown", isActive);
+      btnEl?.classList.toggle("selected", isActive);
+    });
+
+    currentIndex = index;
+  }
+
+  // Клики по кнопкам
+  btns.forEach(({ btn }, index) => {
     const button = document.getElementById(btn);
     if (!button) return;
 
     button.addEventListener("click", () => {
-      // Убираем активные классы у всех боксов, скоупов и номеров
-      btns.forEach(({ box, scope, numbers, btn }) => {
-        const el = document.getElementById(box);
-        const sc = document.getElementById(scope);
-        const num = document.getElementById(numbers);
-        const btnEl = document.getElementById(btn);
-
-        if (el) el.classList.remove("MapBoxShown");
-        if (sc) sc.classList.remove("ScopeShown");
-        if (num) num.classList.remove("CasesNumbersShown");
-        if (btnEl) btnEl.classList.remove("selected");
-      });
-
-      // Добавляем нужные классы активным элементам
-      const targetBox = document.getElementById(box);
-      const targetScope = document.getElementById(scope);
-      const targetNumbers = document.getElementById(numbers);
-
-      if (targetBox) targetBox.classList.add("MapBoxShown");
-      if (targetScope) targetScope.classList.add("ScopeShown");
-      if (targetNumbers) targetNumbers.classList.add("CasesNumbersShown");
-      button.classList.add("selected");
+      updateActive(index);
     });
   });
+
+  // Кнопка "вперёд"
+  document.getElementById("mapGoForward")?.addEventListener("click", () => {
+    const nextIndex = (currentIndex + 1) % btns.length;
+    updateActive(nextIndex);
+  });
+
+  // Кнопка "назад"
+  document.getElementById("mapGoBack")?.addEventListener("click", () => {
+    const prevIndex = (currentIndex - 1 + btns.length) % btns.length;
+    updateActive(prevIndex);
+  });
+
+  // Установить первую активную по умолчанию
+  updateActive(0);
 });
