@@ -15,14 +15,13 @@ import "./javascript/industry.js";
 import "./javascript/scale.js";
 import "./javascript/animation.js";
 import "./javascript/no-move.js";
+import "./javascript/form.js";
 
 import React from "react";
 import { createRoot } from "react-dom/client";
 import Navbar from "./react/navbar.jsx";
 import Burger from "./react/burgerMenu.jsx";
 import ContactModal from "./react/contactModal.jsx";
-
-import "./javascript/multilang.js";
 
 const navbarElement = document.querySelector(".my-navbar");
 const modalElement = document.querySelector(".ContactModalWrap");

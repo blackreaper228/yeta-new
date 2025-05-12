@@ -4,7 +4,7 @@ import "../style.css";
 export default function ContactModal() {
   const [isActive, setIsActive] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     location: "",
     phone: "",
     email: "",
@@ -38,7 +38,28 @@ export default function ContactModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form data:", formData);
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbzLWm8kZwPHMkNg4PaA3_pD9ogJc1lZaenThqh6rUdrb5OCmwCzaFFE2M68snvCMUNVxw/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    ).then(() => {
+      alert("Данные отправлены!");
+      setFormData({
+        name: "",
+        location: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+      setIsActive(false);
+    });
   };
 
   const handleClose = () => {
@@ -64,10 +85,10 @@ export default function ContactModal() {
                 <div className="A_FormInputLabel">Full Name</div>
                 <input
                   type="text"
-                  name="fullName"
+                  name="name"
                   className="A_FormInputField"
                   placeholder="Your name is here"
-                  value={formData.fullName}
+                  value={formData.name}
                   onChange={handleInputChange}
                 />
               </div>

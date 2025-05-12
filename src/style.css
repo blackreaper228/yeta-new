@@ -1392,6 +1392,10 @@ p.button.selected {
   color: #c7d6e5;
 }
 
+.A_FormInputField:hover::placeholder {
+  color: #a8c1d7;
+}
+
 .O_Form {
   gap: 24px;
 }
