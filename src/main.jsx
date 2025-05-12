@@ -22,6 +22,8 @@ import Navbar from "./react/navbar.jsx";
 import Burger from "./react/burgerMenu.jsx";
 import ContactModal from "./react/contactModal.jsx";
 
+import "./javascript/multilang.js";
+
 const navbarElement = document.querySelector(".my-navbar");
 const modalElement = document.querySelector(".ContactModalWrap");
 const BurgerMenuModal = document.querySelector(".BurgerMenuWrap");

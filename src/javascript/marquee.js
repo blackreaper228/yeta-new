@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".logos-track");
+  if (!track) return; // выход раньше, чтобы не вызвать ошибку
+
   const inner = track.querySelector(".track-inner");
+  if (!inner) return;
 
   if (!track || !inner) return;
 

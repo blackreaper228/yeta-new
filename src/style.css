@@ -75,13 +75,13 @@
   }
 
   .A_BoxRight {
+    max-height: 48px;
     cursor: pointer;
     color: var(--white);
     background-color: var(--BlueLarge2);
     padding: 12px 32px;
     border-radius: 4px;
     /* margin-left: clamp(0px, 19.167vw, 276px); */
-    margin-left: 276px;
     margin-right: 32px;
 
     &:hover {
@@ -180,12 +180,28 @@
   /* margin-top: 95vh; */
 }
 
+.animWrapCont {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 800px;
+}
+
 #anim {
   mask-image: radial-gradient(black 40%, transparent 50%);
   position: absolute;
   object-fit: contain;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
   width: 1920px;
   z-index: -1;
+}
+
+#anim canvas {
+  object-fit: cover; /* или "cover", если хочешь заполнять с обрезкой */
+  width: 100%;
+  height: 100%;
 }
 
 #anim2 {
@@ -202,14 +218,8 @@
   height: 100%;
 }
 
-.animWrap {
-  width: 100%;
-}
-
-#anim svg {
-  max-height: 100%;
-  max-width: 100%;
-  overflow: hidden;
+#anim3 {
+  display: none;
 }
 
 .lottie {
@@ -224,7 +234,7 @@
   justify-content: center;
   width: 100%;
   height: 820px;
-  position: fixed;
+  position: relative;
   background: linear-gradient(
     0deg,
     var(--Blue-light, #bfe2ff) 0%,
@@ -519,7 +529,8 @@
 }
 
 .O_Box {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
   gap: 92px;
@@ -2498,6 +2509,16 @@ p.small.pShown {
   flex-direction: column;
   justify-content: center;
   position: relative;
+
+  &.BlueLang {
+    p {
+      color: var(--BlueLarge2);
+    }
+
+    .UnderLine {
+      background-color: var(--BlueLarge2);
+    }
+  }
 }
 
 .MultiLangArrow {
@@ -2518,9 +2539,10 @@ p.small.pShown {
 }
 
 .SelectedBtn {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  padding: 6px 4px;
+  /* padding: 6px 4px; */
 }
 
 .UnderLine {
@@ -2530,16 +2552,18 @@ p.small.pShown {
 }
 
 .SecondaryBtn {
+  cursor: pointer;
   display: none;
   justify-content: center;
   align-items: center;
   position: absolute;
   width: 64px;
   height: 44px;
-  top: 74px;
+  top: 64px;
+  box-shadow: 0px 4px 6px 0px rgba(0, 80, 139, 0.06);
 
   border-radius: 4px;
-  background: rgba(254, 255, 255, 0.6);
+  background: #d6e1ea;
 
   p {
     color: var(--BlueLarge2);
@@ -2632,4 +2656,25 @@ p.small.pShown {
 
 .DesktopShow {
   display: flex !important;
+}
+
+.burgerMenuModal {
+  z-index: 99999999999;
+  position: fixed;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(
+    90deg,
+    rgba(254, 255, 255, 0) -38.32%,
+    var(--Blue-Large-2, #005396) 100%
+  );
+  backdrop-filter: blur(22px);
+
+  .O_Header {
+    background: none;
+    position: relative;
+  }
 }

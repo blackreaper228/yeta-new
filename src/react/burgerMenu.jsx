@@ -3,8 +3,15 @@ import React, { useState, useEffect } from "react";
 export default function BurgerMenuModal() {
   const [isVisible, setIsVisible] = useState(false);
   const [dropdownShown, setDropdownShown] = useState(false);
+  const [showSecondary, setShowSecondary] = useState(false);
+  const [language, setLanguage] = useState("Eng");
 
   useEffect(() => {
+    const savedLang = localStorage.getItem("lang");
+    if (savedLang === "Eng" || savedLang === "Ru") {
+      setLanguage(savedLang);
+    }
+
     const handleOpen = () => setIsVisible(true);
     const burgerOpen = document.getElementById("BurgerOpen");
 
@@ -18,6 +25,13 @@ export default function BurgerMenuModal() {
   const handleClose = () => setIsVisible(false);
   const toggleDropdown = () => setDropdownShown((prev) => !prev);
 
+  const toggleLanguage = () => {
+    const newLang = language === "Eng" ? "Ru" : "Eng";
+    setLanguage(newLang);
+    localStorage.setItem("lang", newLang); // ← сохраняем
+    setShowSecondary(false);
+  };
+
   return (
     <div
       className="BurgerMenuWrap"
@@ -30,21 +44,29 @@ export default function BurgerMenuModal() {
           </a>
           <div className="RightSide">
             <div className="MultiLangBtn">
-              <div className="SelectedBtn">
+              <div
+                className="SelectedBtn"
+                onClick={() => setShowSecondary((prev) => !prev)}
+              >
                 <div className="LangWrap">
-                  <p className="Button">Eng</p>
+                  <p className="Button">{language}</p>
                   <img
-                    src="./src/images/MultiLang.svg"
+                    src="./MultiLang.svg"
                     alt="Arrow down icon"
                     className="MultiLangArrow"
                   />
                 </div>
                 <div className="UnderLine"></div>
               </div>
-              <div className="SecondaryBtn">
-                <p className="Button">Ru</p>
+              <div
+                className="SecondaryBtn"
+                style={{ display: showSecondary ? "flex" : "none" }}
+                onClick={toggleLanguage}
+              >
+                <p className="Button">{language === "Eng" ? "Ru" : "Eng"}</p>
               </div>
             </div>
+
             <div
               className="BurgerMenu White"
               id="BurgerClose"
@@ -63,7 +85,7 @@ export default function BurgerMenuModal() {
               <div className="BurgerServices" onClick={toggleDropdown}>
                 <p className="SubtitleBold">Services</p>
                 <img
-                  src="./src/images/MultiLang.svg"
+                  src="./MultiLang.svg"
                   alt="Arrow down icon"
                   className="MultiLangArrow"
                 />

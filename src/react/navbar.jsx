@@ -1,10 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
   const menuRef = useRef(null);
   const dropRef = useRef(null);
 
+  const [showSecondary, setShowSecondary] = useState(false);
+  const [language, setLanguage] = useState("Eng");
+
   useEffect(() => {
+    const savedLang = localStorage.getItem("lang");
+    if (savedLang === "Ru" || savedLang === "Eng") {
+      setLanguage(savedLang);
+    }
+
     const drop = dropRef.current;
     const menu = menuRef.current;
     let hideTimeout;
@@ -30,6 +38,13 @@ export default function Navbar() {
       drop?.removeEventListener("pointerleave", handleLeave);
     };
   }, []);
+
+  const toggleLanguage = () => {
+    const newLang = language === "Eng" ? "Ru" : "Eng";
+    setLanguage(newLang);
+    localStorage.setItem("lang", newLang);
+    setShowSecondary(false);
+  };
 
   const services = [
     { title: "Multimodal Solutions", url: "./multimodal-solutions.html" },
@@ -87,15 +102,45 @@ export default function Navbar() {
           <p className="button">Sustainability</p>
         </a>
       </div>
+
       <a href="./index.html">
         <div className="A_Logo"></div>
       </a>
-      <div className="A_BoxRight" id="ContactUsBtn">
-        <div className="A_Link">
-          <p className="button">Contact Us</p>
+
+      <div className="RightSide">
+        <div className="MultiLangBtn BlueLang">
+          <div
+            className="SelectedBtn"
+            onClick={() => setShowSecondary((prev) => !prev)}
+          >
+            <div className="LangWrap">
+              <p className="Button">{language}</p>
+              <img
+                src="./MultiLangBlue.svg"
+                alt="Arrow down icon"
+                className="MultiLangArrow"
+              />
+            </div>
+            <div className="UnderLine"></div>
+          </div>
+
+          <div
+            className="SecondaryBtn"
+            style={{ display: showSecondary ? "flex" : "none" }}
+            onClick={toggleLanguage}
+          >
+            <p className="Button">{language === "Eng" ? "Ru" : "Eng"}</p>
+          </div>
         </div>
+
+        <div className="A_BoxRight" id="ContactUsBtn">
+          <div className="A_Link">
+            <p className="button">Contact Us</p>
+          </div>
+        </div>
+
+        <div className="BurgerMenu" id="BurgerOpen"></div>
       </div>
-      <div className="BurgerMenu" id="BurgerOpen"></div>
     </div>
   );
 }
