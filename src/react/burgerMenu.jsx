@@ -77,7 +77,7 @@ export default function BurgerMenuModal() {
 
         <div className="burgerMenuModalBody">
           <div className="BurgerMenuBtns">
-            <a href="./about.html">
+            <a href="./en/about.html">
               <p className="SubtitleBold">About Us</p>
             </a>
 

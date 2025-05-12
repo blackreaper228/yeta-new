@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         about: resolve(__dirname, "about.html"),
+        aboutRu: resolve(__dirname, "ru/about.html"),
         cases: resolve(__dirname, "cases.html"),
         sustainability: resolve(__dirname, "sustainability.html"),
         services: resolve(__dirname, "services.html"),

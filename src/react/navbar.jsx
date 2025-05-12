@@ -8,6 +8,28 @@ export default function Navbar() {
   const [language, setLanguage] = useState("Eng");
 
   useEffect(() => {
+    const lang = localStorage.getItem("lang");
+    const path = window.location.pathname;
+
+    const pathParts = path.split("/");
+    const projectRoot = `/${pathParts[1]}`;
+
+    const isRussian = pathParts[2] === "ru";
+    const cleanSubPath = isRussian
+      ? "/" + pathParts.slice(3).join("/")
+      : "/" + pathParts.slice(2).join("/");
+
+    if (lang === "Ru" && !isRussian) {
+      window.location.pathname = `${projectRoot}/ru${cleanSubPath}`;
+      return;
+    }
+
+    if (lang === "Eng" && isRussian) {
+      window.location.pathname = `${projectRoot}${cleanSubPath}`;
+      return;
+    }
+
+    // 🔽 остальной код дропа и меню
     const savedLang = localStorage.getItem("lang");
     if (savedLang === "Ru" || savedLang === "Eng") {
       setLanguage(savedLang);
@@ -44,6 +66,28 @@ export default function Navbar() {
     setLanguage(newLang);
     localStorage.setItem("lang", newLang);
     setShowSecondary(false);
+
+    const path = window.location.pathname.split("/");
+
+    // определяем корень проекта (например, yeta-new)
+    const projectRoot = path[1];
+    const isRussian = path[2] === "ru";
+
+    // если ты сейчас на русском (внутри /ru/)
+    if (newLang === "Eng" && isRussian) {
+      const cleanPath = path.slice(3).join("/"); // убираем /ru
+      const newPath = `/${projectRoot}/${cleanPath}`;
+      window.location.pathname = newPath;
+      return;
+    }
+
+    // если ты сейчас на английском
+    if (newLang === "Ru" && !isRussian) {
+      const cleanPath = path.slice(2).join("/"); // убираем yeta-new
+      const newPath = `/${projectRoot}/ru/${cleanPath}`;
+      window.location.pathname = newPath;
+      return;
+    }
   };
 
   const services = [
@@ -84,7 +128,7 @@ export default function Navbar() {
             {services.map((service, i) => (
               <div className="WrapDrop" key={i}>
                 <img
-                  src={`./navbarDropdown/A_NavbarServicesIcon0${i + 1}.svg`}
+                  src={`/yeta-new/navbarDropdown/A_NavbarServicesIcon0${i + 1}.svg`}
                   className="A_NavbarServicesIcon"
                   alt="Service icon"
                 />
@@ -116,7 +160,7 @@ export default function Navbar() {
             <div className="LangWrap">
               <p className="Button">{language}</p>
               <img
-                src="./MultiLangBlue.svg"
+                src="/yeta-new/MultiLangBlue.svg"
                 alt="Arrow down icon"
                 className="MultiLangArrow"
               />
