@@ -32,7 +32,7 @@ export default function Navbar() {
   }, []);
 
   const services = [
-    { title: "Multimodal Services", url: "./multimodal-solutions.html" },
+    { title: "Multimodal Solutions", url: "./multimodal-solutions.html" },
     {
       title: "Air Freight and Charter Services",
       url: "./air-freight-and-charter-services.html",

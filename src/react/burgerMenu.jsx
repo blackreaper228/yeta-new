@@ -75,7 +75,7 @@ export default function BurgerMenuModal() {
                 }`}
               >
                 <a href="./multimodal-solutions.html">
-                  <p className="SubtitleBold">Multimodal Services</p>
+                  <p className="SubtitleBold">Multimodal Solutions</p>
                 </a>
                 <a href="./air-freight-and-charter-services.html">
                   <p className="SubtitleBold">

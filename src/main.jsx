@@ -1,5 +1,5 @@
-import "./style.css";
 import "./stylesheets/reset.css";
+import "./style.css";
 import "./stylesheets/fonts.css";
 import "./stylesheets/typekit.css";
 import "./stylesheets/basics.css";
