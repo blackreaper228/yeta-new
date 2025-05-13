@@ -2,9 +2,33 @@ document.querySelector("#sendForm").addEventListener("click", () => {
   const formFields = document.querySelectorAll(".A_FormInputField");
   const data = {};
 
+  const lang = localStorage.getItem("lang") || "Eng";
+  const alertMessages = {
+    Eng: "Your message has been sent!",
+    Ru: "Форма отправлена!",
+  };
+  const errorMessages = {
+    Eng: "Please fill in all fields.",
+    Ru: "Пожалуйста, заполните все поля.",
+  };
+
+  let hasEmpty = false;
+
   formFields.forEach((field) => {
-    data[field.name] = field.value;
+    const value = field.value.trim();
+    const name = field.name;
+
+    if (!value) hasEmpty = true;
+    if (name) data[name] = value;
   });
+
+  if (hasEmpty) {
+    alert(errorMessages[lang] || errorMessages.Eng);
+    return;
+  }
+
+  const loader = document.getElementById("Loader");
+  if (loader) loader.style.display = "flex";
 
   fetch(
     "https://script.google.com/macros/s/AKfycbzLWm8kZwPHMkNg4PaA3_pD9ogJc1lZaenThqh6rUdrb5OCmwCzaFFE2M68snvCMUNVxw/exec",
@@ -17,6 +41,9 @@ document.querySelector("#sendForm").addEventListener("click", () => {
       body: JSON.stringify(data),
     }
   ).then(() => {
-    alert("Данные отправлены!");
+    if (loader) loader.style.display = "none";
+    setTimeout(() => {
+      alert(alertMessages[lang] || alertMessages.Eng);
+    }, 50);
   });
 });

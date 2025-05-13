@@ -3,17 +3,47 @@ import { useEffect, useRef, useState } from "react";
 export default function Navbar() {
   const menuRef = useRef(null);
   const dropRef = useRef(null);
-
   const [showSecondary, setShowSecondary] = useState(false);
   const [language, setLanguage] = useState("Eng");
+
+  const translations = {
+    Eng: {
+      about: "About",
+      services: "Services",
+      cases: "Cases",
+      sustainability: "Sustainability",
+      contact: "Contact Us",
+      serviceItems: [
+        "Multimodal Solutions",
+        "Air Freight and Charter Services",
+        "International and Domestic Trucking",
+        "Dangerous goods",
+        "Logistics Consulting & Route Analysis",
+        "Warehousing & Storage",
+      ],
+    },
+    Ru: {
+      about: "О компании",
+      services: "Услуги",
+      cases: "Кейсы",
+      sustainability: "Стабильность",
+      contact: "Контакты",
+      serviceItems: [
+        "Мультимодальные перевозки",
+        "Авиаперевозки и чартеры",
+        "Международные и внутренние грузоперевозки",
+        "Опасные грузы",
+        "Логистика и анализ маршрутов",
+        "Складирование и хранение",
+      ],
+    },
+  };
 
   useEffect(() => {
     const lang = localStorage.getItem("lang");
     const path = window.location.pathname;
-
     const pathParts = path.split("/");
     const projectRoot = `/${pathParts[1]}`;
-
     const isRussian = pathParts[2] === "ru";
     const cleanSubPath = isRussian
       ? "/" + pathParts.slice(3).join("/")
@@ -29,7 +59,6 @@ export default function Navbar() {
       return;
     }
 
-    // 🔽 остальной код дропа и меню
     const savedLang = localStorage.getItem("lang");
     if (savedLang === "Ru" || savedLang === "Eng") {
       setLanguage(savedLang);
@@ -68,82 +97,66 @@ export default function Navbar() {
     setShowSecondary(false);
 
     const path = window.location.pathname.split("/");
-
-    // определяем корень проекта (например, yeta-new)
     const projectRoot = path[1];
     const isRussian = path[2] === "ru";
 
-    // если ты сейчас на русском (внутри /ru/)
     if (newLang === "Eng" && isRussian) {
-      const cleanPath = path.slice(3).join("/"); // убираем /ru
+      const cleanPath = path.slice(3).join("/");
       const newPath = `/${projectRoot}/${cleanPath}`;
       window.location.pathname = newPath;
       return;
     }
 
-    // если ты сейчас на английском
     if (newLang === "Ru" && !isRussian) {
-      const cleanPath = path.slice(2).join("/"); // убираем yeta-new
+      const cleanPath = path.slice(2).join("/");
       const newPath = `/${projectRoot}/ru/${cleanPath}`;
       window.location.pathname = newPath;
       return;
     }
   };
 
-  const services = [
-    { title: "Multimodal Solutions", url: "./multimodal-solutions.html" },
-    {
-      title: "Air Freight and Charter Services",
-      url: "./air-freight-and-charter-services.html",
-    },
-    {
-      title: "International and Domestic Trucking",
-      url: "./international-and-domestic-trucking.html",
-    },
-    { title: "Dangerous goods", url: "./dangerous-goods.html" },
-    {
-      title: "Logistics Consulting & Route Analysis",
-      url: "./logistics-consulting-and-route-analysis.html",
-    },
-    {
-      title: "Warehousing & Storage",
-      url: "./warehousing-and-storage.html",
-    },
+  const servicesUrls = [
+    "./multimodal-solutions.html",
+    "./air-freight-and-charter-services.html",
+    "./international-and-domestic-trucking.html",
+    "./dangerous-goods.html",
+    "./logistics-consulting-and-route-analysis.html",
+    "./warehousing-and-storage.html",
   ];
 
   return (
     <div className="O_Header">
       <div className="M_Box">
         <a href="./about.html">
-          <p className="button">About</p>
+          <p className="button">{translations[language].about}</p>
         </a>
         <div className="A_BoxDrop" ref={dropRef}>
           <div className="Wrap">
             <a href="./services.html">
-              <p className="button">Services</p>
+              <p className="button">{translations[language].services}</p>
             </a>
             <div className="A_BoxIcon"></div>
           </div>
           <div className="A_Menu" ref={menuRef}>
-            {services.map((service, i) => (
+            {translations[language].serviceItems.map((title, i) => (
               <div className="WrapDrop" key={i}>
                 <img
                   src={`/yeta-new/navbarDropdown/A_NavbarServicesIcon0${i + 1}.svg`}
                   className="A_NavbarServicesIcon"
                   alt="Service icon"
                 />
-                <a href={service.url}>
-                  <p className="button">{service.title}</p>
+                <a href={servicesUrls[i]}>
+                  <p className="button">{title}</p>
                 </a>
               </div>
             ))}
           </div>
         </div>
         <a href="./cases.html">
-          <p className="button">Cases</p>
+          <p className="button">{translations[language].cases}</p>
         </a>
         <a href="./sustainability.html">
-          <p className="button">Sustainability</p>
+          <p className="button">{translations[language].sustainability}</p>
         </a>
       </div>
 
@@ -179,7 +192,7 @@ export default function Navbar() {
 
         <div className="A_BoxRight" id="ContactUsBtn">
           <div className="A_Link">
-            <p className="button">Contact Us</p>
+            <p className="button">{translations[language].contact}</p>
           </div>
         </div>
 

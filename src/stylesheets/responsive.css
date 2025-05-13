@@ -1,4 +1,169 @@
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1440px) {
+  .O_Header {
+    .M_Box {
+      gap: clamp(16px, 2vw, 32px);
+    }
+  }
+}
+
 @media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {
+  .T_BlockService01 {
+    .W_BoxLeft {
+      padding: 64px 64px 64px 64px;
+    }
+
+    h2.BigTitle {
+      font-size: clamp(48px, 5.463vw, 56px);
+    }
+  }
+
+  .Wrap1184px {
+    max-width: 1440px;
+    padding-left: 64px;
+    padding-rigjt: 64px;
+  }
+
+  .SusPWrap {
+    p {
+      font-size: clamp(16px, 1.854vw, 19px);
+    }
+  }
+
+  .About_Section02WrapSus {
+    padding: 112px 64px;
+  }
+
+  .SusIconsWrap {
+    flex-wrap: nowrap;
+
+    h3.Title {
+      font-size: clamp(32px, 3.902vw, 40px);
+    }
+  }
+
+  .WrapAboutUs {
+    h3.Title {
+      padding-right: 12px;
+      font-size: clamp(32px, 3.902vw, 40px);
+    }
+  }
+
+  .T_Scope {
+    padding: 128px 64px 64px 64px;
+  }
+
+  .ScrollElem {
+    padding-left: 64px;
+    h2.BigTitle {
+      font-size: clamp(48px, 5.463vw, 56px);
+    }
+  }
+
+  .WrapAboutUs {
+    padding: 64px 0px;
+  }
+
+  .FixedElem {
+    width: 240px;
+  }
+
+  .WrapRowAbout {
+    &:nth-child(3) > h4 {
+      padding-left: 64px;
+    }
+  }
+
+  .About_Section02 {
+    padding: 112px 64px;
+  }
+
+  .About_Section01 {
+    padding: 70px 64px 0px 64px;
+  }
+
+  .T_FooterDownside {
+    padding: 0px;
+  }
+
+  .T_Footer {
+    padding: 164px 64px 0px 64px;
+  }
+
+  .T_Cases {
+    padding: 112px 64px;
+  }
+
+  .O_BoxNumbers {
+    padding: 0px 64px;
+  }
+
+  .O_Industry {
+    padding: 0px 64px 48px 64px;
+  }
+
+  .W_1440pxWrapCarousel {
+    padding-left: 64px;
+    .W_BoxCarousel {
+      a:last-child {
+        .O_Services {
+          margin-right: 64px;
+        }
+      }
+    }
+  }
+
+  .O_TitleBlock {
+    &.Second {
+      .W_BoxLeft {
+        padding: 52px 0px 52px 64px;
+      }
+    }
+  }
+
+  .O_Text {
+    & .W_Box {
+      h3.Title {
+        font-size: clamp(32px, 2.778vw, 40px);
+      }
+    }
+  }
+
+  .Tab {
+    p.button {
+      font-size: clamp(16px, 1.319vw, 19px);
+      font-weight: 300;
+    }
+  }
+
+  .O_TitleTabs {
+    h3.TitleBold {
+      padding: 0px 64px;
+    }
+  }
+
+  .W_Tabs {
+    padding: 4px 20px;
+  }
+
+  .W_BoxLeft {
+    padding-left: 64px;
+  }
+
+  .W_BoxRight {
+    width: 324px;
+    padding-right: 64px;
+  }
+
+  .O_Box {
+    padding: 0px 64px;
+    flex-wrap: wrap;
+  }
+
+  .O_TitleBlock {
+    /* flex-wrap: wrap; */
+    justify-content: center;
+  }
+
   .A_Logo {
     left: 12px;
     transform: none;
@@ -57,6 +222,10 @@
 }
 
 @media only screen and (min-device-width: 469px) and (max-device-width: 768px) {
+  .ScopeContent.PaddingScope {
+    padding-top: 0px;
+  }
+
   .A_Logo {
     left: 12px;
     transform: none;
@@ -393,7 +562,7 @@
   }
 
   .O_Form {
-    width: calc(100vw - 24px);
+    width: calc(100vw - 48px);
 
     h2 {
       font-size: 56px;
@@ -1037,9 +1206,28 @@
   .SecondaryBtn {
     top: 54px;
   }
+
+  .O_TitleBlock {
+    grid-auto-rows: auto;
+  }
+
+  .T_BlockService01 {
+    .W_BoxRight {
+      height: 300px;
+      grid-row: 2;
+      grid-column: -1/1;
+    }
+    .W_BoxLeft {
+      grid-column: -1/1;
+    }
+  }
 }
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 468px) {
+  .ScopeContent.PaddingScope {
+    padding-top: 0px;
+  }
+
   h1.ExtraTitle {
     font-size: 128px;
     letter-spacing: -5px;

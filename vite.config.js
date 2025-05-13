@@ -8,9 +8,28 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
+        mainRu: resolve(__dirname, "ru/index.html"),
+        aboutRu: resolve(__dirname, "ru/about.html"),
+        casesRu: resolve(__dirname, "ru/cases.html"),
+        sustainabilityRu: resolve(__dirname, "ru/sustainability.html"),
+        servicesRu: resolve(__dirname, "ru/services.html"),
+        service01Ru: resolve(__dirname, "ru/multimodal-solutions.html"),
+        service02Ru: resolve(
+          __dirname,
+          "ru/air-freight-and-charter-services.html"
+        ),
+        service03Ru: resolve(
+          __dirname,
+          "ru/international-and-domestic-trucking.html"
+        ),
+        service04Ru: resolve(__dirname, "ru/dangerous-goods.html"),
+        service05Ru: resolve(
+          __dirname,
+          "ru/logistics-consulting-and-route-analysis.html"
+        ),
+        service06Ru: resolve(__dirname, "ru/warehousing-and-storage.html"),
         main: resolve(__dirname, "index.html"),
         about: resolve(__dirname, "about.html"),
-        aboutRu: resolve(__dirname, "ru/about.html"),
         cases: resolve(__dirname, "cases.html"),
         sustainability: resolve(__dirname, "sustainability.html"),
         services: resolve(__dirname, "services.html"),
@@ -26,7 +45,6 @@ export default defineConfig({
           "logistics-consulting-and-route-analysis.html"
         ),
         service06: resolve(__dirname, "warehousing-and-storage.html"),
-        test: resolve(__dirname, "test-page.html"),
       },
     },
   },

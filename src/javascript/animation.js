@@ -11,7 +11,7 @@ var animation = bodymovin.loadAnimation({
   renderer: "canvas",
   loop: true,
   autoplay: true,
-  path: "./data_anim.json",
+  path: "/yeta-new/data_anim.json",
 });
 
 animation.addEventListener("DOMLoaded", function () {

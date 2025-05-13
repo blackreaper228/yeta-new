@@ -6,6 +6,39 @@ export default function BurgerMenuModal() {
   const [showSecondary, setShowSecondary] = useState(false);
   const [language, setLanguage] = useState("Eng");
 
+  const translations = {
+    Eng: {
+      about: "About Us",
+      services: "Services",
+      cases: "Cases",
+      sustainability: "Sustainability",
+      contact: "Contact Us",
+      serviceItems: [
+        "Multimodal Solutions",
+        "Air Freight and Charter Services",
+        "International and Domestic Trucking",
+        "Dangerous goods",
+        "Logistics Consulting & Route Analysis",
+        "Warehousing & Storage",
+      ],
+    },
+    Ru: {
+      about: "О компании",
+      services: "Услуги",
+      cases: "Кейсы",
+      sustainability: "Стабильность",
+      contact: "Контакты",
+      serviceItems: [
+        "Мультимодальные перевозки",
+        "Авиаперевозки и чартеры",
+        "Международные и внутренние грузоперевозки",
+        "Опасные грузы",
+        "Логистика и анализ маршрутов",
+        "Складирование и хранение",
+      ],
+    },
+  };
+
   useEffect(() => {
     const savedLang = localStorage.getItem("lang");
     if (savedLang === "Eng" || savedLang === "Ru") {
@@ -28,8 +61,26 @@ export default function BurgerMenuModal() {
   const toggleLanguage = () => {
     const newLang = language === "Eng" ? "Ru" : "Eng";
     setLanguage(newLang);
-    localStorage.setItem("lang", newLang); // ← сохраняем
+    localStorage.setItem("lang", newLang);
     setShowSecondary(false);
+
+    const path = window.location.pathname.split("/");
+    const projectRoot = path[1];
+    const isRussian = path[2] === "ru";
+
+    if (newLang === "Eng" && isRussian) {
+      const cleanPath = path.slice(3).join("/");
+      const newPath = `/${projectRoot}/${cleanPath}`;
+      window.location.pathname = newPath;
+      return;
+    }
+
+    if (newLang === "Ru" && !isRussian) {
+      const cleanPath = path.slice(2).join("/");
+      const newPath = `/${projectRoot}/ru/${cleanPath}`;
+      window.location.pathname = newPath;
+      return;
+    }
   };
 
   return (
@@ -51,7 +102,7 @@ export default function BurgerMenuModal() {
                 <div className="LangWrap">
                   <p className="Button">{language}</p>
                   <img
-                    src="./MultiLang.svg"
+                    src="/yeta-new/MultiLang.svg"
                     alt="Arrow down icon"
                     className="MultiLangArrow"
                   />
@@ -77,15 +128,17 @@ export default function BurgerMenuModal() {
 
         <div className="burgerMenuModalBody">
           <div className="BurgerMenuBtns">
-            <a href="./en/about.html">
-              <p className="SubtitleBold">About Us</p>
+            <a href="./about.html">
+              <p className="SubtitleBold">{translations[language].about}</p>
             </a>
 
             <div className="DropDownServices">
               <div className="BurgerServices" onClick={toggleDropdown}>
-                <p className="SubtitleBold">Services</p>
+                <p className="SubtitleBold">
+                  {translations[language].services}
+                </p>
                 <img
-                  src="./MultiLang.svg"
+                  src="/yeta-new/MultiLang.svg"
                   alt="Arrow down icon"
                   className="MultiLangArrow"
                 />
@@ -96,45 +149,38 @@ export default function BurgerMenuModal() {
                   dropdownShown ? "ShownBtns" : ""
                 }`}
               >
-                <a href="./multimodal-solutions.html">
-                  <p className="SubtitleBold">Multimodal Solutions</p>
-                </a>
-                <a href="./air-freight-and-charter-services.html">
-                  <p className="SubtitleBold">
-                    Air Freight and Charter Services
-                  </p>
-                </a>
-                <a href="./international-and-domestic-trucking.html">
-                  <p className="SubtitleBold">
-                    International and Domestic Trucking
-                  </p>
-                </a>
-                <a href="./dangerous-goods.html">
-                  <p className="SubtitleBold">Dangerous goods</p>
-                </a>
-                <a href="./logistics-consulting-and-route-analysis.html">
-                  <p className="SubtitleBold">
-                    Logistics Consulting & Route Analysis
-                  </p>
-                </a>
-                <a href="./warehousing-and-storage.html">
-                  <p className="SubtitleBold">
-                    Warehousing <br /> & Storage
-                  </p>
-                </a>
+                {translations[language].serviceItems.map((text, i) => (
+                  <a
+                    key={i}
+                    href={
+                      [
+                        "./multimodal-solutions.html",
+                        "./air-freight-and-charter-services.html",
+                        "./international-and-domestic-trucking.html",
+                        "./dangerous-goods.html",
+                        "./logistics-consulting-and-route-analysis.html",
+                        "./warehousing-and-storage.html",
+                      ][i]
+                    }
+                  >
+                    <p className="SubtitleBold">{text}</p>
+                  </a>
+                ))}
               </div>
             </div>
 
             <a href="./cases.html">
-              <p className="SubtitleBold">Cases</p>
+              <p className="SubtitleBold">{translations[language].cases}</p>
             </a>
             <a href="./sustainability.html">
-              <p className="SubtitleBold">Sustainability</p>
+              <p className="SubtitleBold">
+                {translations[language].sustainability}
+              </p>
             </a>
           </div>
 
           <div className="A_Button" id="ContactUsBtn" onClick={handleClose}>
-            <p className="button">Contact Us</p>
+            <p className="button">{translations[language].contact}</p>
             <div className="A_IconsNavigationIcon"></div>
           </div>
         </div>
