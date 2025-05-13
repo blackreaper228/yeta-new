@@ -25,9 +25,9 @@ export default function Navbar() {
     Ru: {
       about: "О компании",
       services: "Услуги",
-      cases: "Кейсы",
-      sustainability: "Стабильность",
-      contact: "Контакты",
+      cases: "Проекты",
+      sustainability: "Развитие",
+      contact: "Связаться с нами",
       serviceItems: [
         "Мультимодальные перевозки",
         "Авиаперевозки и чартеры",

@@ -308,7 +308,7 @@
 .LandingScreenWrap {
   padding-top: 146px;
   width: 100%;
-  max-width: 584px;
+  max-width: 620px;
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -635,19 +635,19 @@
 }
 
 .A_IconSus01 {
-  background-image: url("./images/A_IconSus01.svg");
+  background-image: url("./images/A_IconSus04.svg");
   width: 50px;
   aspect-ratio: 1;
 }
 
 .A_IconSus02 {
-  background-image: url("./images/A_IconSus02.svg");
+  background-image: url("./images/A_IconSus01.svg");
   width: 50px;
   aspect-ratio: 1;
 }
 
 .A_IconSus03 {
-  background-image: url("./images/A_IconSus03.svg");
+  background-image: url("./images/A_IconSus02.svg");
   width: 50px;
   aspect-ratio: 1;
 }
@@ -2470,6 +2470,10 @@ p.small.pShown {
   background-image: url("./images/cases/covers/ServiceCoverImage06.jpg");
 }
 
+#ServiceCoverImage07 {
+  background-image: url("./images/cases/covers/ServiceCoverImage07.jpg");
+}
+
 .LandingFirstScreenMobile {
   position: relative;
   display: none;
@@ -2790,5 +2794,18 @@ p.small.pShown {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+#link_inside {
+  p {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+#link_inside:hover {
+  p {
+    text-decoration: none;
   }
 }

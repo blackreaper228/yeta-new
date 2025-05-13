@@ -1,3 +1,7 @@
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollSmoother from "gsap/ScrollSmoother";
+
 document.addEventListener("DOMContentLoaded", () => {
   const btns = [
     { btn: "indBtn01", box: "ind01" },
@@ -12,22 +16,45 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!button) return;
 
     button.addEventListener("click", () => {
-      // Убираем класс у всех боксов
       btns.forEach(({ box }) => {
         const el = document.getElementById(box);
         if (el) el.classList.remove("IndustryShown");
       });
-      // Добавляем класс только нужному боксу
+
       const target = document.getElementById(box);
       if (target) target.classList.add("IndustryShown");
 
-      // Убираем класс selected у всех кнопок
       btns.forEach(({ btn }) => {
         const btnEl = document.getElementById(btn);
         if (btnEl) btnEl.classList.remove("Selected");
       });
-      // Добавляем класс selected только нажатой кнопке
+
       button.classList.add("Selected");
     });
   });
+
+  // 🧠 универсальный авто-скролл по хэшу
+  const hash = window.location.hash;
+  const matched = btns.find(({ box }) => `#${box}` === hash);
+
+  if (matched) {
+    const triggerBtn = document.getElementById(matched.btn);
+    const targetBox = document.getElementById(matched.box);
+
+    if (triggerBtn) triggerBtn.click();
+
+    const waitUntilVisible = () => {
+      const smoother = ScrollSmoother.get();
+      const isVisible =
+        targetBox && window.getComputedStyle(targetBox).display !== "none";
+
+      if (smoother && isVisible) {
+        smoother.scrollTo(`#${matched.box}`, true, "center center");
+      } else {
+        setTimeout(waitUntilVisible, 50);
+      }
+    };
+
+    waitUntilVisible();
+  }
 });
