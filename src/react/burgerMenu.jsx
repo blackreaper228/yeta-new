@@ -1,3 +1,4 @@
+import { getRedirectPath } from "../javascript/langRouter.js";
 import React, { useState, useEffect } from "react";
 
 export default function BurgerMenuModal() {
@@ -8,7 +9,7 @@ export default function BurgerMenuModal() {
 
   const translations = {
     Eng: {
-      about: "About Us",
+      about: "About",
       services: "Services",
       cases: "Cases",
       sustainability: "Sustainability",
@@ -26,23 +27,29 @@ export default function BurgerMenuModal() {
       about: "О компании",
       services: "Услуги",
       cases: "Проекты",
-      sustainability: "Развитие",
+      sustainability: "Устойчивое развитие",
       contact: "Связаться с нами",
       serviceItems: [
-        "Мультимодальные перевозки",
-        "Авиаперевозки и чартеры",
-        "Международные и внутренние грузоперевозки",
-        "Опасные грузы",
-        "Логистика и анализ маршрутов",
-        "Складирование и хранение",
+        "Мультимодальная логистика",
+        "Авиаперевозки и чартерные услуги",
+        "Международные и внутренние автоперевозки",
+        "Перевозка опасных грузов",
+        "Логистический консалтинг",
+        "Складские решения",
       ],
     },
   };
 
   useEffect(() => {
-    const savedLang = localStorage.getItem("lang");
-    if (savedLang === "Eng" || savedLang === "Ru") {
-      setLanguage(savedLang);
+    const lang = localStorage.getItem("lang");
+    const redirect = getRedirectPath(lang, window.location.pathname);
+    if (redirect) {
+      window.location.pathname = redirect;
+      return;
+    }
+
+    if (lang === "Ru" || lang === "Eng") {
+      setLanguage(lang);
     }
 
     const handleOpen = () => setIsVisible(true);
@@ -64,22 +71,9 @@ export default function BurgerMenuModal() {
     localStorage.setItem("lang", newLang);
     setShowSecondary(false);
 
-    const path = window.location.pathname.split("/");
-    const projectRoot = path[1];
-    const isRussian = path[2] === "ru";
-
-    if (newLang === "Eng" && isRussian) {
-      const cleanPath = path.slice(3).join("/");
-      const newPath = `/${projectRoot}/${cleanPath}`;
-      window.location.pathname = newPath;
-      return;
-    }
-
-    if (newLang === "Ru" && !isRussian) {
-      const cleanPath = path.slice(2).join("/");
-      const newPath = `/${projectRoot}/ru/${cleanPath}`;
-      window.location.pathname = newPath;
-      return;
+    const redirect = getRedirectPath(newLang, window.location.pathname);
+    if (redirect) {
+      window.location.pathname = redirect;
     }
   };
 
@@ -102,7 +96,7 @@ export default function BurgerMenuModal() {
                 <div className="LangWrap">
                   <p className="Button">{language}</p>
                   <img
-                    src="/yeta-new/MultiLang.svg"
+                    src="/MultiLang.svg"
                     alt="Arrow down icon"
                     className="MultiLangArrow"
                   />
@@ -138,7 +132,7 @@ export default function BurgerMenuModal() {
                   {translations[language].services}
                 </p>
                 <img
-                  src="/yeta-new/MultiLang.svg"
+                  src="/MultiLang.svg"
                   alt="Arrow down icon"
                   className="MultiLangArrow"
                 />

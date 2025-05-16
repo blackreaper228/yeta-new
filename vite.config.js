@@ -3,11 +3,12 @@ import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 
 export default defineConfig({
-  base: "/yeta-new/",
+  base: "/",
   plugins: [react()],
   build: {
     rollupOptions: {
       input: {
+        policyRu: resolve(__dirname, "ru/policy.html"),
         mainRu: resolve(__dirname, "ru/index.html"),
         aboutRu: resolve(__dirname, "ru/about.html"),
         casesRu: resolve(__dirname, "ru/cases.html"),
@@ -28,6 +29,7 @@ export default defineConfig({
           "ru/logistics-consulting-and-route-analysis.html"
         ),
         service06Ru: resolve(__dirname, "ru/warehousing-and-storage.html"),
+        policy: resolve(__dirname, "policy.html"),
         main: resolve(__dirname, "index.html"),
         about: resolve(__dirname, "about.html"),
         cases: resolve(__dirname, "cases.html"),

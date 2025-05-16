@@ -16,6 +16,7 @@ import "./javascript/scale.js";
 import "./javascript/animation.js";
 import "./javascript/no-move.js";
 import "./javascript/form.js";
+import "./javascript/langRouter.js";
 
 import React from "react";
 import { createRoot } from "react-dom/client";

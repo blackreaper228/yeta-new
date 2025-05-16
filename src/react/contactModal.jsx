@@ -17,36 +17,39 @@ export default function ContactModal() {
     Eng: {
       heading: "Contact Us",
       fullName: "Full Name",
-      namePlaceholder: "Your name is here",
+      namePlaceholder: "Your name",
       location: "Location",
-      locationPlaceholder: "Country is here",
+      locationPlaceholder: "Location",
       phone: "Phone number",
-      phonePlaceholder: "+1 111 111 11 11",
+      phonePlaceholder: "Phone number",
       email: "Email",
-      emailPlaceholder: "Email is here",
+      emailPlaceholder: "Email",
       message: "Message",
-      messagePlaceholder: "We'd like to order ...",
+      messagePlaceholder: "I need to deliver...",
       submit: "Contact Us",
       linkedin: "Visit Our LinkedIn",
       alert: "Your message has been sent!",
       error: "Please fill in all fields.",
+      privacy: "By submitting this form you agree to the privacy policy",
     },
     Ru: {
-      heading: "Связаться с нами",
+      heading: "Связаться с нами",
       fullName: "Полное имя",
-      namePlaceholder: "Ваше имя",
+      namePlaceholder: "Имя и Фамилия",
       location: "Локация",
-      locationPlaceholder: "Страна",
+      locationPlaceholder: "Локация",
       phone: "Телефон",
-      phonePlaceholder: "+7 999 999 99 99",
+      phonePlaceholder: "Номер телефона",
       email: "Эл. почта",
-      emailPlaceholder: "Введите email",
+      emailPlaceholder: "Электронная почта",
       message: "Сообщение",
-      messagePlaceholder: "Мы хотели бы заказать ...",
+      messagePlaceholder: "Мне нужно доставить...",
       submit: "Отправить",
       linkedin: "Мы в LinkedIn",
       alert: "Форма отправлена!",
       error: "Пожалуйста, заполните все поля.",
+      privacy:
+        "Отправляя данную форму вы соглашаетесь с политикой конфиденциальности",
     },
   };
 
@@ -92,7 +95,7 @@ export default function ContactModal() {
     setIsLoading(true);
 
     fetch(
-      "https://script.google.com/macros/s/AKfycbzLWm8kZwPHMkNg4PaA3_pD9ogJc1lZaenThqh6rUdrb5OCmwCzaFFE2M68snvCMUNVxw/exec",
+      "https://script.google.com/macros/s/AKfycbzQYoYu6ssuuW4E0-Pg1unD2RMLbKFl45OawBBJSO1OfO7lHAiLaum99ZAG0mbYwqAO/exec",
       {
         method: "POST",
         mode: "no-cors",
@@ -196,15 +199,24 @@ export default function ContactModal() {
                 />
               </div>
             </div>
-            <div className="W_FormDownside">
-              <button type="submit" className="A_Button">
-                <p className="button">{t.submit}</p>
-                <div className="A_IconsNavigationIcon Grey"></div>
-              </button>
-              <div className="A_OutButton">
-                <p className="button">{t.linkedin}</p>
-                <div className="A_IconsNavigationIcon"></div>
+            <div className="GigaFlex">
+              <div className="W_FormDownside">
+                <button type="submit" className="A_Button" id="sendForm">
+                  <p className="button">{t.submit}</p>
+                  <div className="A_IconsNavigationIcon Grey"></div>
+                </button>
+                <div className="A_OutButton">
+                  <a
+                    href="https://www.linkedin.com/company/yeta-llp/?viewAsMember=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <p className="button">{t.linkedin}</p>
+                  </a>
+                  <div className="A_IconsNavigationIcon"></div>
+                </div>
               </div>
+              <p className="footerPar">{t.privacy}</p>
             </div>
           </form>
         </div>

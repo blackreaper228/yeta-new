@@ -306,7 +306,7 @@
     font-size: 16px;
     margin-bottom: 0px;
     position: absolute;
-    top: 40%;
+    top: 395px;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
   }
@@ -325,12 +325,13 @@
   }
 
   .animWrap {
+    top: 398px;
     position: absolute;
     overflow: hidden;
     width: 100%;
-    height: 100dvh;
+    height: 500px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-50%);
   }
 
   #anim2 {
@@ -338,12 +339,36 @@
     width: 1000px;
     top: 40%;
     left: 50%;
-    transform: translateX(-50%) translateY(-58%);
+    transform: translateX(-50%) translateY(-40%);
     z-index: 1;
   }
 
+  /* #anim2 {
+    position: relative;
+    width: 1000px;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-58%);
+    z-index: 1;
+  } */
+
   .LandingTextWrap {
-    display: none;
+    animation: none;
+    left: 50%;
+    top: 160px;
+    transform: translateX(-50%);
+    position: absolute;
+    color: white !important;
+    width: 100%;
+    max-width: 336px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      font-size: 40px !important;
+      font-weight: 400;
+    }
   }
 
   .ScrollDownWrap {
@@ -370,8 +395,16 @@
     justify-content: flex-end;
     align-items: flex-start;
     display: flex;
-    height: 100dvh;
+    /* height: 100dvh; */
+    height: 500px;
     background:
+      linear-gradient(
+        0deg,
+        var(--Blue-light, #bfe2ff) 0%,
+        #a9d8ff 7.22%,
+        #4aabf4 38.87%,
+        var(--Blue-Large, #0074ca) 88.87%
+      ),
       linear-gradient(
         180deg,
         rgba(255, 255, 255, 0) 0%,
@@ -564,7 +597,7 @@
   .O_Form {
     width: calc(100vw - 48px);
 
-    h2 {
+    h2.Footer {
       font-size: 56px;
       font-weight: 300;
     }
@@ -769,6 +802,7 @@
       .W_Numbers {
         flex-direction: column;
         .M_Numbers {
+          padding: 0px;
           align-items: flex-start;
           border-right: none;
 
@@ -1221,6 +1255,17 @@
       grid-column: -1/1;
     }
   }
+
+  #whitew {
+    .policyWrap {
+      padding: 32px;
+      padding-top: 16px;
+    }
+
+    .policyHeader {
+      font-size: 32px;
+    }
+  }
 }
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 468px) {
@@ -1296,7 +1341,7 @@
     font-size: 16px;
     margin-bottom: 0px;
     position: absolute;
-    top: 40%;
+    top: 395px;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
   }
@@ -1315,12 +1360,13 @@
   }
 
   .animWrap {
+    top: 398px;
     position: absolute;
     overflow: hidden;
     width: 100%;
-    height: 100dvh;
+    height: 500px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-50%);
   }
 
   #anim2 {
@@ -1328,12 +1374,36 @@
     width: 1000px;
     top: 40%;
     left: 50%;
-    transform: translateX(-50%) translateY(-58%);
+    transform: translateX(-50%) translateY(-40%);
     z-index: 1;
   }
 
+  /* #anim2 {
+    position: relative;
+    width: 1000px;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-58%);
+    z-index: 1;
+  } */
+
   .LandingTextWrap {
-    display: none;
+    animation: none;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 160px;
+    position: absolute;
+    color: white !important;
+    width: 100%;
+    max-width: 336px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      font-size: 40px !important;
+      font-weight: 400;
+    }
   }
 
   .ScrollDownWrap {
@@ -1360,8 +1430,15 @@
     justify-content: flex-end;
     align-items: flex-start;
     display: flex;
-    height: 100dvh;
+    height: 500px;
     background:
+      linear-gradient(
+        0deg,
+        var(--Blue-light, #bfe2ff) 0%,
+        #a9d8ff 7.22%,
+        #4aabf4 38.87%,
+        var(--Blue-Large, #0074ca) 88.87%
+      ),
       linear-gradient(
         180deg,
         rgba(255, 255, 255, 0) 0%,
@@ -1557,6 +1634,7 @@
     h2 {
       font-size: 56px;
       font-weight: 300;
+      line-height: 110%;
     }
 
     .A_ModalCloseIcon {
@@ -1759,6 +1837,7 @@
       .W_Numbers {
         flex-direction: column;
         .M_Numbers {
+          padding: 0px;
           align-items: flex-start;
           border-right: none;
 
@@ -2008,7 +2087,7 @@
   .ScopeHeaderWrap {
     gap: 20px;
     h3 {
-      font-size: 40px;
+      font-size: clamp(32px, 7.729vw, 40px);
       line-height: 110%;
     }
 
@@ -2087,6 +2166,7 @@
 
       h2.BigTitle.Bold {
         font-weight: 100 !important;
+        font-size: clamp(40px, 10vw, 56px);
       }
     }
 
@@ -2121,7 +2201,7 @@
 
         h2 {
           width: 100%;
-          font-size: 40px;
+          font-size: clamp(32px, 7.729vw, 40px);
         }
       }
     }
@@ -2180,6 +2260,7 @@
 
   .BigTitle.yes-border {
     padding-top: 64px;
+    font-size: clamp(40px, 10vw, 56px);
   }
 
   .About_Section02WrapSus {
@@ -2195,6 +2276,17 @@
 
   .SecondaryBtn {
     top: 54px;
+  }
+
+  #whitew {
+    .policyWrap {
+      padding: 32px;
+      padding-top: 16px;
+    }
+
+    .policyHeader {
+      font-size: 32px;
+    }
   }
 }
 

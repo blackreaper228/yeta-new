@@ -316,7 +316,7 @@
                     name="name"
                     type="text"
                     class="A_FormInputField"
-                    placeholder="Your name is here"
+                    placeholder="Your name"
                   />
                 </div>
                 <div class="M_FormInput">
@@ -325,7 +325,7 @@
                     name="location"
                     type="text"
                     class="A_FormInputField"
-                    placeholder="Country is here"
+                    placeholder="Location"
                   />
                 </div>
               </div>
@@ -336,7 +336,7 @@
                     name="phone"
                     type="text"
                     class="A_FormInputField"
-                    placeholder="+1 111 111 11 11"
+                    placeholder="Phone number"
                   />
                 </div>
                 <div class="M_FormInput">
@@ -345,7 +345,7 @@
                     name="email"
                     type="text"
                     class="A_FormInputField"
-                    placeholder="Email is here"
+                    placeholder="Email"
                   />
                 </div>
               </div>
@@ -355,29 +355,29 @@
                   name="message"
                   type="text"
                   class="A_FormInputField"
-                  placeholder="We’d like to order ..."
+                  placeholder="I need to deliver..."
                 />
               </div>
             </div>
-            <div class="W_FormDownside">
-              <div class="A_Button" id="sendForm">
-                <p class="button">Contact Us</p>
-                <div class="A_IconsNavigationIcon Grey"></div>
-              </div>
-              <div class="A_OutButton">
-                <a
-                  href="https://www.linkedin.com/company/yeta-llp/?viewAsMember=true"
-                  target="_blank"
-                >
+            <div class="GigaFlex">
+              <div class="W_FormDownside">
+                <div class="A_Button" id="sendForm">
+                  <p class="button">Contact Us</p>
+                  <div class="A_IconsNavigationIcon Grey"></div>
+                </div>
+                <div class="A_OutButton">
                   <a
                     href="https://www.linkedin.com/company/yeta-llp/?viewAsMember=true"
                     target="_blank"
                   >
                     <p class="button">Visit Our LinkedIn</p>
                   </a>
-                </a>
-                <div class="A_IconsNavigationIcon"></div>
+                  <div class="A_IconsNavigationIcon"></div>
+                </div>
               </div>
+              <p class="footerPar">
+                By submitting this form you agree to the privacy policy
+              </p>
             </div>
           </div>
           <div class="T_FooterDownside">
@@ -405,7 +405,9 @@
                       src="./src/images/footerIcons/A_FooterContactsContentItemIconPhone.svg"
                       alt="Phone icon"
                     />
-                    <p class="button">+7 701 340 33 61</p>
+                    <a href="tel:+77013403361">
+                      <p class="button">+7 701 340 33 61</p>
+                    </a>
                   </div>
                   <div class="M_FooterContactsContentItem">
                     <img
@@ -413,7 +415,9 @@
                       src="./src/images/footerIcons/A_FooterContactsContentItemIconMail.svg"
                       alt="Mail icon"
                     />
-                    <p class="button">info@yeta.kz</p>
+                    <a href="mailto:info@yeta.kz">
+                      <p class="button">info@yeta.kz</p>
+                    </a>
                   </div>
                   <div class="W_Socials">
                     <a
@@ -435,10 +439,11 @@
               </div>
             </div>
             <div class="W_FooterDownsideWrap">
-              <p class="small">Yeta 2025. Все права защищены.</p>
+              <p class="small">Yeta 2025. All rights reserved</p>
               <div class="W_FooterDownsideWrapText">
-                <p class="small">Условия пользования</p>
-                <p class="small">Политика конфиденциальности</p>
+                <a href="./policy.html">
+                  <p class="small">Privacy Policy</p>
+                </a>
               </div>
             </div>
           </div>

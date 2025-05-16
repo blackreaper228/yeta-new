@@ -3,7 +3,8 @@ var animation = bodymovin.loadAnimation({
   renderer: "canvas",
   loop: true,
   autoplay: true,
-  path: "/yeta-new/data_anim.json",
+  // path: "/data_anim.json",
+  path: "/data_new_anim.json",
 });
 
 var animation = bodymovin.loadAnimation({
@@ -11,7 +12,8 @@ var animation = bodymovin.loadAnimation({
   renderer: "canvas",
   loop: true,
   autoplay: true,
-  path: "/yeta-new/data_anim.json",
+  // path: "/data_anim.json",
+  path: "/data_new_anim.json",
 });
 
 animation.addEventListener("DOMLoaded", function () {
